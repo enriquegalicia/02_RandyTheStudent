@@ -1,0 +1,335 @@
+{
+    "assets": [
+        {
+            "asset": "../../../../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/ResourceRules.plist", 
+            "target": "ResourceRules.plist"
+        }, 
+        {
+            "asset": "RandyTheStudent/INT_Fondo_Randy.png", 
+            "target": "INT_Fondo_Randy.png"
+        }, 
+        {
+            "asset": "RandyTheStudent/INT_Pizarron_clean.png", 
+            "target": "INT_Pizarron_clean.png"
+        }, 
+        {
+            "asset": "RandyTheStudent/INT_Randy_Main.png", 
+            "target": "INT_Randy_Main.png"
+        }, 
+        {
+            "asset": "RandyTheStudent/arrow.png", 
+            "target": "arrow.png"
+        }, 
+        {
+            "asset": "RandyTheStudent/INT_Facebook.png", 
+            "target": "INT_Facebook.png"
+        }, 
+        {
+            "asset": "RandyTheStudent/INT_Notittle_randy.png", 
+            "target": "INT_Notittle_randy.png"
+        }, 
+        {
+            "asset": "RandyTheStudent/INT_Tittle.png", 
+            "target": "INT_Tittle.png"
+        }, 
+        {
+            "asset": "RandyTheStudent/INT_Randy_solo.png", 
+            "target": "INT_Randy_solo.png"
+        }, 
+        {
+            "asset": "RandyTheStudent/en.lproj/InfoPlist.strings", 
+            "target": "en.lproj/InfoPlist.strings"
+        }, 
+        {
+            "asset": "RandyTheStudent/Images.xcassets", 
+            "target": null
+        }
+    ], 
+    "config": {
+        "APPLICATION_FULL_NAME": "RandytheStudent", 
+        "APPLICATION_IDENTIFIER": "com.Magnificent.RandytheStudent", 
+        "APPLICATION_NAME": "RandytheStudent", 
+        "LONG_VERSION": "2.0", 
+        "SHORT_VERSION": "2.0", 
+        "TEMPLATE_VALUES": {
+            "EXECUTABLE_NAME": "RandytheStudent", 
+            "PRODUCT_NAME": "RandytheStudent"
+        }
+    }, 
+    "defines": {
+        "NS_BLOCK_ASSERTIONS": 1, 
+        "__IPHONE_OS_VERSION_MIN_REQUIRED": 60000
+    }, 
+    "deps": [
+        "UIKit", 
+        "CoreGraphics", 
+        "UIKit", 
+        "Foundation"
+    ], 
+    "flags": [
+        "-fobjc-arc", 
+        "-fasm-blocks", 
+        {
+            "flag": "-std=gnu99", 
+            "not_type": "c++"
+        }, 
+        {
+            "flag": "-fgnu-keywords", 
+            "not_type": "c++"
+        }, 
+        "-fno-asm", 
+        "-fpascal-strings", 
+        "-Wempty-body", 
+        "-Wshorten-64-to-32", 
+        "-Wno-deprecated-declarations", 
+        "-Wswitch", 
+        "-Wparentheses", 
+        "-Wformat", 
+        "-Wuninitialized", 
+        "-Wunused-function", 
+        "-Wunused-value", 
+        "-Wunused-variable", 
+        {
+            "flag": "-Winvalid-offsetof", 
+            "type": "c++"
+        }, 
+        {
+            "flag": "-Wprotocol", 
+            "type": "objc"
+        }, 
+        {
+            "flag": "-Wundeclared-selector", 
+            "type": "objc"
+        }
+    ], 
+    "header_paths": [
+        {
+            "header_path": "RandytheStudent-generated-files.hmap", 
+            "hmap": {}, 
+            "type": "iquote"
+        }, 
+        {
+            "header_path": "RandytheStudent-own-target-headers.hmap", 
+            "hmap": {}, 
+            "type": "I"
+        }, 
+        {
+            "header_path": "RandytheStudent-all-target-headers.hmap", 
+            "hmap": {}, 
+            "type": "I"
+        }, 
+        {
+            "header_path": "RandytheStudent-project-headers.hmap", 
+            "hmap": {
+                "AppDelegate.h": {
+                    "key": "AppDelegate.h", 
+                    "prefix": "RandyTheStudent/", 
+                    "suffix": "AppDelegate.h"
+                }, 
+                "BasicTable.h": {
+                    "key": "BasicTable.h", 
+                    "prefix": "RandyTheStudent/", 
+                    "suffix": "BasicTable.h"
+                }, 
+                "Classes.h": {
+                    "key": "Classes.h", 
+                    "prefix": "RandyTheStudent/", 
+                    "suffix": "Classes.h"
+                }, 
+                "ComboBox.h": {
+                    "key": "ComboBox.h", 
+                    "prefix": "RandyTheStudent/", 
+                    "suffix": "ComboBox.h"
+                }, 
+                "Credits.h": {
+                    "key": "Credits.h", 
+                    "prefix": "RandyTheStudent/", 
+                    "suffix": "Credits.h"
+                }, 
+                "DataBase.h": {
+                    "key": "DataBase.h", 
+                    "prefix": "RandyTheStudent/", 
+                    "suffix": "DataBase.h"
+                }, 
+                "InfoCharts.h": {
+                    "key": "InfoCharts.h", 
+                    "prefix": "RandyTheStudent/", 
+                    "suffix": "InfoCharts.h"
+                }, 
+                "RandyMenu.h": {
+                    "key": "RandyMenu.h", 
+                    "prefix": "RandyTheStudent/", 
+                    "suffix": "RandyMenu.h"
+                }, 
+                "RandytheStudent-Prefix.pch": {
+                    "key": "RandytheStudent-Prefix.pch", 
+                    "prefix": "RandyTheStudent/", 
+                    "suffix": "RandytheStudent-Prefix.pch"
+                }, 
+                "SmoothedBIView.h": {
+                    "key": "SmoothedBIView.h", 
+                    "prefix": "RandyTheStudent/", 
+                    "suffix": "SmoothedBIView.h"
+                }, 
+                "Subtitulados.h": {
+                    "key": "Subtitulados.h", 
+                    "prefix": "RandyTheStudent/", 
+                    "suffix": "Subtitulados.h"
+                }, 
+                "UserPreferences.h": {
+                    "key": "UserPreferences.h", 
+                    "prefix": "RandyTheStudent/", 
+                    "suffix": "UserPreferences.h"
+                }
+            }, 
+            "type": "iquote"
+        }, 
+        {
+            "header_path": "/var/folders/3z/y9sm8sbj4l762218l1z18vqc0000gn/T/tmpNd4UK0/BUILT_PRODUCTS_DIR/include", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "/var/folders/3z/y9sm8sbj4l762218l1z18vqc0000gn/T/tmpNd4UK0/DERIVED_FILE_DIR/armv7", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "/var/folders/3z/y9sm8sbj4l762218l1z18vqc0000gn/T/tmpNd4UK0/DERIVED_FILE_DIR", 
+            "type": "I"
+        }
+    ], 
+    "infoplists": [
+        "/Users/EnriqueGalicia/Documents/00_IOS Apps/07_RandytheStudent/Version/RandytheStudent V2.0/RandyTheStudent/RandyTheStudent/RandytheStudent-Info.plist"
+    ], 
+    "libs": [
+        "sqlite3.0"
+    ], 
+    "modules": [], 
+    "pchs": [
+        "./RandyTheStudent/RandytheStudent-Prefix.pch"
+    ], 
+    "sources": [
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "RandyTheStudent/AppDelegate.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "RandyTheStudent/BasicTable.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "RandyTheStudent/Classes.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "RandyTheStudent/ComboBox.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "RandyTheStudent/Credits.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "RandyTheStudent/DataBase.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "RandyTheStudent/InfoCharts.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "RandyTheStudent/RandyMenu.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "RandyTheStudent/SmoothedBIView.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "RandyTheStudent/Subtitulados.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "RandyTheStudent/UserPreferences.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "RandyTheStudent/main.m"
+        }
+    ], 
+    "storyboards": [], 
+    "type": "app", 
+    "version": "3", 
+    "xcdatamodels": [], 
+    "xcode_project": "RandytheStudent.xcodeproj", 
+    "xibs": [
+        {
+            "target": null, 
+            "xib": "RandyTheStudent/MainViewController_iPhone.xib"
+        }, 
+        {
+            "target": null, 
+            "xib": "RandyTheStudent/ComboBox.xib"
+        }, 
+        {
+            "target": null, 
+            "xib": "RandyTheStudent/RandyMenu_Iphone.xib"
+        }, 
+        {
+            "target": null, 
+            "xib": "RandyTheStudent/Credits.xib"
+        }, 
+        {
+            "target": null, 
+            "xib": "RandyTheStudent/RandyMenu.xib"
+        }, 
+        {
+            "target": null, 
+            "xib": "RandyTheStudent/MainViewController_iPad.xib"
+        }, 
+        {
+            "target": null, 
+            "xib": "RandyTheStudent/BasicTable.xib"
+        }
+    ]
+}

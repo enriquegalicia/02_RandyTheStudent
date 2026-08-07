@@ -1,0 +1,185 @@
+{
+    "assets": [
+        {
+            "asset": "RandyTheStudentTests/en.lproj/InfoPlist.strings", 
+            "target": "en.lproj/InfoPlist.strings"
+        }
+    ], 
+    "config": {
+        "TEMPLATE_VALUES": {}
+    }, 
+    "defines": {
+        "NS_BLOCK_ASSERTIONS": 1, 
+        "__IPHONE_OS_VERSION_MIN_REQUIRED": 70000
+    }, 
+    "deps": [
+        "UIKit", 
+        "CoreGraphics", 
+        "UIKit", 
+        "Foundation", 
+        "XCTest", 
+        "XCTest", 
+        "UIKit", 
+        "Foundation"
+    ], 
+    "flags": [
+        "-fobjc-arc", 
+        "-fasm-blocks", 
+        {
+            "flag": "-std=gnu99", 
+            "not_type": "c++"
+        }, 
+        {
+            "flag": "-fgnu-keywords", 
+            "not_type": "c++"
+        }, 
+        "-fno-asm", 
+        "-fpascal-strings", 
+        "-Wempty-body", 
+        "-Wshorten-64-to-32", 
+        "-Wno-deprecated-declarations", 
+        "-Wswitch", 
+        "-Wparentheses", 
+        "-Wformat", 
+        "-Wuninitialized", 
+        "-Wunused-function", 
+        "-Wunused-value", 
+        "-Wunused-variable", 
+        {
+            "flag": "-Winvalid-offsetof", 
+            "type": "c++"
+        }, 
+        {
+            "flag": "-Wprotocol", 
+            "type": "objc"
+        }, 
+        {
+            "flag": "-Wundeclared-selector", 
+            "type": "objc"
+        }
+    ], 
+    "header_paths": [
+        {
+            "header_path": "RandytheStudenttheStudent.temp_caseinsensitive_renameTests-generated-files.hmap", 
+            "hmap": {}, 
+            "type": "iquote"
+        }, 
+        {
+            "header_path": "RandytheStudenttheStudent.temp_caseinsensitive_renameTests-own-target-headers.hmap", 
+            "hmap": {}, 
+            "type": "I"
+        }, 
+        {
+            "header_path": "RandytheStudenttheStudent.temp_caseinsensitive_renameTests-all-target-headers.hmap", 
+            "hmap": {}, 
+            "type": "I"
+        }, 
+        {
+            "header_path": "RandytheStudenttheStudent.temp_caseinsensitive_renameTests-project-headers.hmap", 
+            "hmap": {
+                "AppDelegate.h": {
+                    "key": "AppDelegate.h", 
+                    "prefix": "RandyTheStudent/", 
+                    "suffix": "AppDelegate.h"
+                }, 
+                "BasicTable.h": {
+                    "key": "BasicTable.h", 
+                    "prefix": "RandyTheStudent/", 
+                    "suffix": "BasicTable.h"
+                }, 
+                "Classes.h": {
+                    "key": "Classes.h", 
+                    "prefix": "RandyTheStudent/", 
+                    "suffix": "Classes.h"
+                }, 
+                "ComboBox.h": {
+                    "key": "ComboBox.h", 
+                    "prefix": "RandyTheStudent/", 
+                    "suffix": "ComboBox.h"
+                }, 
+                "Credits.h": {
+                    "key": "Credits.h", 
+                    "prefix": "RandyTheStudent/", 
+                    "suffix": "Credits.h"
+                }, 
+                "DataBase.h": {
+                    "key": "DataBase.h", 
+                    "prefix": "RandyTheStudent/", 
+                    "suffix": "DataBase.h"
+                }, 
+                "InfoCharts.h": {
+                    "key": "InfoCharts.h", 
+                    "prefix": "RandyTheStudent/", 
+                    "suffix": "InfoCharts.h"
+                }, 
+                "RandyMenu.h": {
+                    "key": "RandyMenu.h", 
+                    "prefix": "RandyTheStudent/", 
+                    "suffix": "RandyMenu.h"
+                }, 
+                "RandytheStudent-Prefix.pch": {
+                    "key": "RandytheStudent-Prefix.pch", 
+                    "prefix": "RandyTheStudent/", 
+                    "suffix": "RandytheStudent-Prefix.pch"
+                }, 
+                "SmoothedBIView.h": {
+                    "key": "SmoothedBIView.h", 
+                    "prefix": "RandyTheStudent/", 
+                    "suffix": "SmoothedBIView.h"
+                }, 
+                "Subtitulados.h": {
+                    "key": "Subtitulados.h", 
+                    "prefix": "RandyTheStudent/", 
+                    "suffix": "Subtitulados.h"
+                }, 
+                "UserPreferences.h": {
+                    "key": "UserPreferences.h", 
+                    "prefix": "RandyTheStudent/", 
+                    "suffix": "UserPreferences.h"
+                }
+            }, 
+            "type": "iquote"
+        }, 
+        {
+            "header_path": "/var/folders/3z/y9sm8sbj4l762218l1z18vqc0000gn/T/tmp74FZym/BUILT_PRODUCTS_DIR/include", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "/var/folders/3z/y9sm8sbj4l762218l1z18vqc0000gn/T/tmp74FZym/DERIVED_FILE_DIR/armv7", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "/var/folders/3z/y9sm8sbj4l762218l1z18vqc0000gn/T/tmp74FZym/DERIVED_FILE_DIR", 
+            "type": "I"
+        }
+    ], 
+    "infoplists": [
+        "./RandyTheStudentTests/RandytheStudent.temp_caseinsensitive_renameTests-Info.plist"
+    ], 
+    "libs": [
+        "sqlite3.0"
+    ], 
+    "modules": [], 
+    "pchs": [
+        "./RandyTheStudent/RandyTheStudent-Prefix.pch"
+    ], 
+    "sources": [
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "RandyTheStudentTests/RandyTheStudentTests.m"
+        }
+    ], 
+    "storyboards": [], 
+    "type": "com.apple.product-type.bundle.unit-test", 
+    "version": "3", 
+    "xcdatamodels": [], 
+    "xcode_project": "RandytheStudent.xcodeproj", 
+    "xibs": []
+}

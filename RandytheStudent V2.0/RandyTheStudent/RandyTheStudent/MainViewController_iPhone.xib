@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Classes">
+            <connections>
+                <outlet property="BuBack" destination="MDk-Vp-2yZ" id="zga-TO-Bv1"/>
+                <outlet property="BuDelete" destination="tHZ-CC-bhw" id="lkX-oT-463"/>
+                <outlet property="BuDeleteActivity" destination="Z0V-cH-WRo" id="nSv-xL-C9o"/>
+                <outlet property="BuDown" destination="zK2-9m-hLi" id="1eE-f2-EQJ"/>
+                <outlet property="BuEdit" destination="Urm-j1-kFL" id="fqj-TD-rzO"/>
+                <outlet property="BuG2" destination="dxV-6W-FUv" id="xYw-6E-gBC"/>
+                <outlet property="BuG3" destination="6w8-Im-iaP" id="Swf-Pp-VD5"/>
+                <outlet property="BuG4" destination="aqF-JZ-aaP" id="Kug-Bp-mUc"/>
+                <outlet property="BuG5" destination="73d-gt-qw4" id="BFi-Xp-OTD"/>
+                <outlet property="BuG6" destination="KcN-Ge-fwj" id="qOY-al-XQV"/>
+                <outlet property="BuGrade" destination="Nyx-tk-hlW" id="IoD-3y-gAa"/>
+                <outlet property="BuGraph" destination="7iq-iY-mj9" id="Tol-Oj-B7X"/>
+                <outlet property="BuGraph2" destination="tua-7u-z8R" id="kvb-6w-0m0"/>
+                <outlet property="BuGroups" destination="LHm-wl-MNC" id="5ds-Kq-Iah"/>
+                <outlet property="BuModify" destination="KYo-sF-qSN" id="vRt-yH-E1p"/>
+                <outlet property="BuPart" destination="tAS-Em-0iJ" id="uQe-L6-1FL"/>
+                <outlet property="BuRandy" destination="XEs-K7-yTa" id="tLZ-GM-9id"/>
+                <outlet property="BuSave" destination="NkF-Ig-QR3" id="Q9K-do-UjM"/>
+                <outlet property="BuSaveAct" destination="HZA-9V-4Ft" id="uxl-X8-V3v"/>
+                <outlet property="BuUp" destination="njk-k4-aOF" id="VyC-Oo-Pzq"/>
+                <outlet property="IvActividades" destination="yjV-TZ-444" id="qin-4t-dth"/>
+                <outlet property="IvAlumnos" destination="Spq-hc-DCG" id="QGB-W9-H2E"/>
+                <outlet property="IvGrupos" destination="9Bo-pR-gpt" id="cyr-pZ-hcd"/>
+                <outlet property="LaEmail" destination="CVv-lZ-WW5" id="VTQ-yC-6ix"/>
+                <outlet property="LaFirstName" destination="Uao-9w-16e" id="Uoy-Z7-nhE"/>
+                <outlet property="LaGroup" destination="Sti-3Y-Mue" id="zyQ-gr-C8s"/>
+                <outlet property="LaLastName" destination="avV-jg-SyO" id="plS-ce-mD0"/>
+                <outlet property="LaStudentId" destination="XuL-2g-hTr" id="z6a-xy-DmU"/>
+                <outlet property="LaTitle" destination="YF6-oO-Ndk" id="Hq5-R5-GL6"/>
+                <outlet property="TfEmailName" destination="n9i-hh-4MY" id="zoA-VV-vCT"/>
+                <outlet property="TfFirstName" destination="ZL2-qX-1P0" id="3pZ-LA-7d8"/>
+                <outlet property="TfGradeGroup" destination="ymg-K5-H5S" id="7Yk-Oy-sgX"/>
+                <outlet property="TfLastName" destination="e6d-zd-GT2" id="FQx-9y-7eG"/>
+                <outlet property="TfSaveActivity" destination="qLl-u7-gGM" id="tHP-W3-Vbe"/>
+                <outlet property="TfStudent" destination="qOT-b6-JQ0" id="iHK-GB-aVH"/>
+                <outlet property="grafica1" destination="AtN-Gp-Hto" id="0NA-MO-MVq"/>
+                <outlet property="grafica2" destination="OFj-kq-1h0" id="YfB-M9-sGS"/>
+                <outlet property="view" destination="34" id="VF4-2e-mNe"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="34">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="INT_Fondo_Randy.png" id="58">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tAS-Em-0iJ">
+                    <rect key="frame" x="27" y="84" width="148" height="37"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="SELECT TO PARTICIPATE">
+                        <color key="titleColor" red="0.41251890120000001" green="0.7136781754" blue="0.22605846769999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="newrandy:" destination="-1" eventType="touchUpInside" id="cnH-WP-CkQ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="njk-k4-aOF">
+                    <rect key="frame" x="50" y="413" width="23" height="28"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                    <state key="normal" title="UP">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="upup:" destination="-1" eventType="touchUpInside" id="rtz-Ko-dSa"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zK2-9m-hLi">
+                    <rect key="frame" x="124" y="417" width="54" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                    <state key="normal" title="DOWN">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="down:" destination="-1" eventType="touchUpInside" id="3AH-Jb-eBv"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dxV-6W-FUv">
+                    <rect key="frame" x="27" y="58" width="15" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <state key="normal" title="2">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="group2:" destination="-1" eventType="touchUpInside" id="AUT-Is-YJu"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MDk-Vp-2yZ">
+                    <rect key="frame" x="6" y="12" width="58" height="26"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <state key="normal" title="Back">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="back:" destination="-1" eventType="touchUpInside" id="NnA-bm-Hmw"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fQf-qW-snH">
+                    <rect key="frame" x="280" y="30" width="22" height="37"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                    <state key="normal" title="1">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="group1:" destination="-1" eventType="touchUpInside" id="oRN-RL-xlv"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6w8-Im-iaP">
+                    <rect key="frame" x="58" y="58" width="15" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <state key="normal" title="3">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="group3:" destination="-1" eventType="touchUpInside" id="Sdc-L2-X2Z"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aqF-JZ-aaP">
+                    <rect key="frame" x="92" y="58" width="15" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <state key="normal" title="4">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="group4:" destination="-1" eventType="touchUpInside" id="kmh-k8-kax"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="73d-gt-qw4">
+                    <rect key="frame" x="124" y="58" width="15" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <state key="normal" title="5">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="group5:" destination="-1" eventType="touchUpInside" id="QAG-DA-BbW"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KcN-Ge-fwj">
+                    <rect key="frame" x="157" y="58" width="15" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <state key="normal" title="6">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="group6:" destination="-1" eventType="touchUpInside" id="qgV-Qf-ges"/>
+                    </connections>
+                </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Randy the Student" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="YF6-oO-Ndk">
+                    <rect key="frame" x="27" y="32" width="199" height="33"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HZA-9V-4Ft">
+                    <rect key="frame" x="187" y="442" width="115" height="26"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <state key="normal" title="SAVE ACTIVITY">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="saveactivity:" destination="-1" eventType="touchUpInside" id="bf6-qM-8CJ"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="9Bo-pR-gpt">
+                    <rect key="frame" x="50" y="147" width="250" height="264"/>
+                    <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Randy the Student" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="66">
+                    <rect key="frame" x="86" y="10" width="170" height="29"/>
+                    <autoresizingMask key="autoresizingMask" heightSizable="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Urm-j1-kFL">
+                    <rect key="frame" x="187" y="71" width="62" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="EDITION">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="edition:" destination="-1" eventType="touchUpInside" id="Zsl-mC-rys"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XEs-K7-yTa">
+                    <rect key="frame" x="252" y="112" width="62" height="27"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="RANDY">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="changerandy:" destination="-1" eventType="touchUpInside" id="5QL-yu-e6s"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LHm-wl-MNC">
+                    <rect key="frame" x="187" y="90" width="62" height="27"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="GROUPS">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="changegroups:" destination="-1" eventType="touchUpInside" id="foj-Sq-u1f"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7iq-iY-mj9">
+                    <rect key="frame" x="252" y="68" width="62" height="27"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="GRAPH 1">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="graphs:" destination="-1" eventType="touchUpInside" id="c2U-Uw-oih"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tua-7u-z8R">
+                    <rect key="frame" x="252" y="90" width="62" height="27"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="GRAPH 2">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="graphs2:" destination="-1" eventType="touchUpInside" id="CEr-89-L4d"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NkF-Ig-QR3">
+                    <rect key="frame" x="44" y="277" width="54" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="Save">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="save:" destination="-1" eventType="touchUpInside" id="EUn-4P-Ad8"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KYo-sF-qSN">
+                    <rect key="frame" x="117" y="273" width="109" height="33"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="Modify">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="modify:" destination="-1" eventType="touchUpInside" id="NVI-WV-hUL"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tHZ-CC-bhw">
+                    <rect key="frame" x="228" y="278" width="79" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="Delete">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="deleteid:" destination="-1" eventType="touchUpInside" id="xyP-QL-fsT"/>
+                    </connections>
+                </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Student ID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="XuL-2g-hTr">
+                    <rect key="frame" x="44" y="140" width="63" height="36"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="qOT-b6-JQ0">
+                    <rect key="frame" x="106" y="145" width="201" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="zeI-TE-FQg"/>
+                    </connections>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="ZL2-qX-1P0">
+                    <rect key="frame" x="106" y="177" width="201" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="oDu-Zj-GVi"/>
+                    </connections>
+                </textField>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="First Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Uao-9w-16e">
+                    <rect key="frame" x="44" y="175" width="63" height="36"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Last Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="avV-jg-SyO">
+                    <rect key="frame" x="44" y="209" width="63" height="36"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="e6d-zd-GT2">
+                    <rect key="frame" x="106" y="209" width="201" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="K8L-Do-6Pd"/>
+                    </connections>
+                </textField>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="CVv-lZ-WW5">
+                    <rect key="frame" x="44" y="241" width="54" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Spq-hc-DCG">
+                    <rect key="frame" x="44" y="299" width="263" height="172"/>
+                    <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Group Activities" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Sti-3Y-Mue">
+                    <rect key="frame" x="45" y="135" width="140" height="19"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Z0V-cH-WRo">
+                    <rect key="frame" x="177" y="135" width="66" height="19"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Delete">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="deleteactivity:" destination="-1" eventType="touchUpInside" id="Y8m-OA-RGA"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="yjV-TZ-444">
+                    <rect key="frame" x="51" y="154" width="259" height="283"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Nyx-tk-hlW">
+                    <rect key="frame" x="211" y="446" width="93" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                    <state key="normal" title="Grade Group">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="gradegroup:" destination="-1" eventType="touchUpInside" id="xtT-5N-BoW"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="ymg-K5-H5S">
+                    <rect key="frame" x="45" y="441" width="158" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="OSH-dC-oeU"/>
+                    </connections>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="n9i-hh-4MY">
+                    <rect key="frame" x="106" y="241" width="201" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="MSq-eM-GpK"/>
+                    </connections>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="qLl-u7-gGM">
+                    <rect key="frame" x="45" y="440" width="141" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="abW-Xz-eSk"/>
+                    </connections>
+                </textField>
+                <view contentMode="scaleToFill" id="AtN-Gp-Hto" customClass="InfoCharts">
+                    <rect key="frame" x="45" y="140" width="257" height="320"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" id="OFj-kq-1h0" customClass="InfoCharts">
+                    <rect key="frame" x="45" y="140" width="257" height="320"/>
+                    <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.93256194299999995" green="0.95086029260000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="INT_Fondo_Randy.png" width="748" height="1024"/>
+    </resources>
+</document>
