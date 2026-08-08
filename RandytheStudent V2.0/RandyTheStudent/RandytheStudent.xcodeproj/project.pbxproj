@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		3D5742CE18B426730060E1FA /* INT_Facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D5742CD18B426730060E1FA /* INT_Facebook.png */; };
-		3DB8C64918A979F60044B6BA /* DataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8C64818A979F60044B6BA /* DataBase.m */; };
-		3DB8C65218A97A8A0044B6BA /* BasicTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8C64C18A97A8A0044B6BA /* BasicTable.m */; };
+		C41E518A9EAAF4978DA68337 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1EB054B3E2C5B75D5CB926 /* DataBase.swift */; };
+		A5BDAF588AB8030B5D20AD54 /* BasicTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C63F4580BD7E81E160D199F /* BasicTable.swift */; };
 		3DB8C65318A97A8A0044B6BA /* BasicTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB8C64D18A97A8A0044B6BA /* BasicTable.xib */; };
 		3DB8C65418A97A8A0044B6BA /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DB8C64E18A97A8A0044B6BA /* arrow.png */; };
-		3DB8C65518A97A8A0044B6BA /* ComboBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8C65018A97A8A0044B6BA /* ComboBox.m */; };
+		F1324F35DA7D84B32EB808E6 /* ComboBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E1A6BF15DE520B7643BC8 /* ComboBox.swift */; };
 		3DB8C65618A97A8B0044B6BA /* ComboBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB8C65118A97A8A0044B6BA /* ComboBox.xib */; };
 		3DB8C65918A982280044B6BA /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB8C65818A982280044B6BA /* libsqlite3.0.dylib */; };
-		3DB8C65D18A988EC0044B6BA /* Subtitulados.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8C65B18A988EC0044B6BA /* Subtitulados.m */; };
+		3BDEF949FE2A50A1C57A1D43 /* Subtitulados.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4595A0C727A06AA57EF110F /* Subtitulados.swift */; };
 		3DC156CE18A952C90071C12F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC156CD18A952C90071C12F /* Foundation.framework */; };
 		3DC156D018A952C90071C12F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC156CF18A952C90071C12F /* CoreGraphics.framework */; };
 		3DC156D218A952C90071C12F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC156D118A952C90071C12F /* UIKit.framework */; };
@@ -39,12 +39,12 @@
 		3DC1571418A9556C0071C12F /* MainViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DC1571118A9556C0071C12F /* MainViewController_iPhone.xib */; };
 		3DC1571518A9556C0071C12F /* MainViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DC1571218A9556C0071C12F /* MainViewController_iPad.xib */; };
 		3DC1571818A955AE0071C12F /* INT_Fondo_Randy.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DC1571718A955AE0071C12F /* INT_Fondo_Randy.png */; };
-		3DC5CCE919084533005EA65D /* Credits.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC5CCE719084533005EA65D /* Credits.m */; };
+		EAEC4DECA92A8E3573EEB5B0 /* Credits.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9ECD63F75D5850AA51AB0E /* Credits.swift */; };
 		3DC5CCEA19084533005EA65D /* Credits.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DC5CCE819084533005EA65D /* Credits.xib */; };
 		3DC5CCEC1908455D005EA65D /* INT_Pizarron_clean.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DC5CCEB1908455D005EA65D /* INT_Pizarron_clean.png */; };
-		3DD13DDD18C775BC00A962DA /* UserPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD13DDC18C775BC00A962DA /* UserPreferences.m */; };
-		3DDBBA0618C636C0002E6941 /* SmoothedBIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDBBA0518C636C0002E6941 /* SmoothedBIView.m */; };
-		3DDBBA0918C638ED002E6941 /* InfoCharts.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDBBA0818C638ED002E6941 /* InfoCharts.m */; };
+		3112F81B393366A1B1A8E94B /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C137F76D56B0BCFF73167D12 /* UserPreferences.swift */; };
+		254358B7F72E5D2D92819ECA /* SmoothedBIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EC0C00CFE71573AD44BD56 /* SmoothedBIView.swift */; };
+		75F16E276512442AFBA15BE2 /* InfoCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB0DFCABF9D0E270297F499 /* InfoCharts.swift */; };
 		BE054431BA6E7807A067F9C8 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 86716C943C605D88745AC27C /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
@@ -60,18 +60,15 @@
 
 /* Begin PBXFileReference section */
 		3D5742CD18B426730060E1FA /* INT_Facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = INT_Facebook.png; sourceTree = "<group>"; };
-		3DB8C64818A979F60044B6BA /* DataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBase.m; sourceTree = "<group>"; };
-		3DB8C64B18A97A8A0044B6BA /* BasicTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicTable.h; sourceTree = "<group>"; };
-		3DB8C64C18A97A8A0044B6BA /* BasicTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicTable.m; sourceTree = "<group>"; };
+		FD1EB054B3E2C5B75D5CB926 /* DataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
+		8C63F4580BD7E81E160D199F /* BasicTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicTable.swift; sourceTree = "<group>"; };
 		3DB8C64D18A97A8A0044B6BA /* BasicTable.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasicTable.xib; sourceTree = "<group>"; };
 		3DB8C64E18A97A8A0044B6BA /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
-		3DB8C64F18A97A8A0044B6BA /* ComboBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComboBox.h; sourceTree = "<group>"; };
-		3DB8C65018A97A8A0044B6BA /* ComboBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComboBox.m; sourceTree = "<group>"; };
+		902E1A6BF15DE520B7643BC8 /* ComboBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComboBox.swift; sourceTree = "<group>"; };
 		3DB8C65118A97A8A0044B6BA /* ComboBox.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComboBox.xib; sourceTree = "<group>"; };
 		3DB8C65718A97CF50044B6BA /* DataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBase.h; sourceTree = "<group>"; };
 		3DB8C65818A982280044B6BA /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
-		3DB8C65A18A988EC0044B6BA /* Subtitulados.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subtitulados.h; sourceTree = "<group>"; };
-		3DB8C65B18A988EC0044B6BA /* Subtitulados.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Subtitulados.m; sourceTree = "<group>"; };
+		D4595A0C727A06AA57EF110F /* Subtitulados.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subtitulados.swift; sourceTree = "<group>"; };
 		3DC156CA18A952C90071C12F /* RandytheStudent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandytheStudent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC156CD18A952C90071C12F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3DC156CF18A952C90071C12F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -80,6 +77,7 @@
 		3DC156D718A952C90071C12F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3DC156D918A952C90071C12F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DC156DB18A952C90071C12F /* RandytheStudent-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RandytheStudent-Prefix.pch"; sourceTree = "<group>"; };
+		D3F0B1AE00000000000000A1 /* RandyTheStudent-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RandyTheStudent-Bridging-Header.h"; sourceTree = "<group>"; };
 		3DC156DC18A952C90071C12F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3DC156DD18A952C90071C12F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3DC156DF18A952C90071C12F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -101,16 +99,12 @@
 		3DC1571118A9556C0071C12F /* MainViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController_iPhone.xib; sourceTree = "<group>"; };
 		3DC1571218A9556C0071C12F /* MainViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController_iPad.xib; sourceTree = "<group>"; };
 		3DC1571718A955AE0071C12F /* INT_Fondo_Randy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = INT_Fondo_Randy.png; sourceTree = "<group>"; };
-		3DC5CCE619084533005EA65D /* Credits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Credits.h; sourceTree = "<group>"; };
-		3DC5CCE719084533005EA65D /* Credits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Credits.m; sourceTree = "<group>"; };
+		EC9ECD63F75D5850AA51AB0E /* Credits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credits.swift; sourceTree = "<group>"; };
 		3DC5CCE819084533005EA65D /* Credits.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Credits.xib; sourceTree = "<group>"; };
 		3DC5CCEB1908455D005EA65D /* INT_Pizarron_clean.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = INT_Pizarron_clean.png; sourceTree = "<group>"; };
-		3DD13DDB18C775BC00A962DA /* UserPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPreferences.h; sourceTree = "<group>"; };
-		3DD13DDC18C775BC00A962DA /* UserPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPreferences.m; sourceTree = "<group>"; };
-		3DDBBA0418C636C0002E6941 /* SmoothedBIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmoothedBIView.h; sourceTree = "<group>"; };
-		3DDBBA0518C636C0002E6941 /* SmoothedBIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmoothedBIView.m; sourceTree = "<group>"; };
-		3DDBBA0718C638ED002E6941 /* InfoCharts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoCharts.h; sourceTree = "<group>"; };
-		3DDBBA0818C638ED002E6941 /* InfoCharts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoCharts.m; sourceTree = "<group>"; };
+		C137F76D56B0BCFF73167D12 /* UserPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
+		75EC0C00CFE71573AD44BD56 /* SmoothedBIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothedBIView.swift; sourceTree = "<group>"; };
+		DFB0DFCABF9D0E270297F499 /* InfoCharts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCharts.swift; sourceTree = "<group>"; };
 		86716C943C605D88745AC27C /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,6 +185,7 @@
 				3DC156D618A952C90071C12F /* InfoPlist.strings */,
 				3DC156D918A952C90071C12F /* main.m */,
 				3DC156DB18A952C90071C12F /* RandytheStudent-Prefix.pch */,
+				D3F0B1AE00000000000000A1 /* RandyTheStudent-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -216,23 +211,16 @@
 		3DC156FC18A952D10071C12F /* Clases */ = {
 			isa = PBXGroup;
 			children = (
-				3DD13DDB18C775BC00A962DA /* UserPreferences.h */,
-				3DD13DDC18C775BC00A962DA /* UserPreferences.m */,
-				3DB8C65718A97CF50044B6BA /* DataBase.h */,
-				3DB8C64818A979F60044B6BA /* DataBase.m */,
-				3DB8C64B18A97A8A0044B6BA /* BasicTable.h */,
-				3DB8C64C18A97A8A0044B6BA /* BasicTable.m */,
+				C137F76D56B0BCFF73167D12 /* UserPreferences.swift */,
+				FD1EB054B3E2C5B75D5CB926 /* DataBase.swift */,
+				8C63F4580BD7E81E160D199F /* BasicTable.swift */,
 				3DB8C64D18A97A8A0044B6BA /* BasicTable.xib */,
 				3DB8C64E18A97A8A0044B6BA /* arrow.png */,
-				3DB8C64F18A97A8A0044B6BA /* ComboBox.h */,
-				3DB8C65018A97A8A0044B6BA /* ComboBox.m */,
+				902E1A6BF15DE520B7643BC8 /* ComboBox.swift */,
 				3DB8C65118A97A8A0044B6BA /* ComboBox.xib */,
-				3DB8C65A18A988EC0044B6BA /* Subtitulados.h */,
-				3DB8C65B18A988EC0044B6BA /* Subtitulados.m */,
-				3DDBBA0718C638ED002E6941 /* InfoCharts.h */,
-				3DDBBA0818C638ED002E6941 /* InfoCharts.m */,
-				3DDBBA0418C636C0002E6941 /* SmoothedBIView.h */,
-				3DDBBA0518C636C0002E6941 /* SmoothedBIView.m */,
+				D4595A0C727A06AA57EF110F /* Subtitulados.swift */,
+				DFB0DFCABF9D0E270297F499 /* InfoCharts.swift */,
+				75EC0C00CFE71573AD44BD56 /* SmoothedBIView.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -396,16 +384,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DB8C65D18A988EC0044B6BA /* Subtitulados.m in Sources */,
+				3BDEF949FE2A50A1C57A1D43 /* Subtitulados.swift in Sources */,
 				3DC156DE18A952C90071C12F /* AppDelegate.m in Sources */,
-				3DDBBA0918C638ED002E6941 /* InfoCharts.m in Sources */,
-				3DD13DDD18C775BC00A962DA /* UserPreferences.m in Sources */,
-				3DB8C64918A979F60044B6BA /* DataBase.m in Sources */,
-				3DDBBA0618C636C0002E6941 /* SmoothedBIView.m in Sources */,
-				3DB8C65218A97A8A0044B6BA /* BasicTable.m in Sources */,
+				75F16E276512442AFBA15BE2 /* InfoCharts.swift in Sources */,
+				3112F81B393366A1B1A8E94B /* UserPreferences.swift in Sources */,
+				C41E518A9EAAF4978DA68337 /* DataBase.swift in Sources */,
+				254358B7F72E5D2D92819ECA /* SmoothedBIView.swift in Sources */,
+				A5BDAF588AB8030B5D20AD54 /* BasicTable.swift in Sources */,
 				3DC156DA18A952C90071C12F /* main.m in Sources */,
 				3DC1570818A953650071C12F /* RandyMenu.m in Sources */,
-				3DB8C65518A97A8A0044B6BA /* ComboBox.m in Sources */,
+				F1324F35DA7D84B32EB808E6 /* ComboBox.swift in Sources */,
 				3DC5CCE919084533005EA65D /* Credits.m in Sources */,
 				3DC1571318A9556C0071C12F /* Classes.m in Sources */,
 			);
@@ -542,11 +530,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M4T54FHTC9;
+				DEFINES_MODULE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RandyTheStudent/RandytheStudent-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/RandyTheStudent/RandytheStudent-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				PRODUCT_NAME = RandytheStudent;
+				SWIFT_OBJC_BRIDGING_HEADER = "RandyTheStudent/RandyTheStudent-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
@@ -562,11 +553,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M4T54FHTC9;
+				DEFINES_MODULE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RandyTheStudent/RandytheStudent-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/RandyTheStudent/RandytheStudent-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				PRODUCT_NAME = RandytheStudent;
+				SWIFT_OBJC_BRIDGING_HEADER = "RandyTheStudent/RandyTheStudent-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;

@@ -31,9 +31,13 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-       
-    
+    // Force Auto Layout to resolve the placeholder image views' frames now,
+    // since the code below copies their .frame into the custom table/combo
+    // views below before the normal (deferred) layout pass would run.
+    [self.view layoutIfNeeded];
+
+
+
     //Crear Base Datos default
     valores=[[NSMutableDictionary alloc]init];
     sub=[[Subtitulados alloc]init];

@@ -7,11 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DataBase.h"
-#import "ComboBox.h"
-#import "BasicTable.h"
-#import "Subtitulados.h"
-#import "InfoCharts.h"
+#import "RandytheStudent-Swift.h"
 
 
 @protocol ClassesDelegate;

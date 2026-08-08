@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DataBase.h"
-#import "ComboBox.h"
-#import "Subtitulados.h"
 #import "Classes.h"
 #import "Credits.h"
+#import "RandytheStudent-Swift.h"
 
 
 

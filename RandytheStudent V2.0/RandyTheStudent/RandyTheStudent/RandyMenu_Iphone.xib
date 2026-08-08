@@ -20,21 +20,17 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="INT_Notittle_randy.png" id="8">
+                <imageView translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="INT_Notittle_randy.png"  id="8">
                     <rect key="frame" x="0.0" y="146" width="320" height="422"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </imageView>
-                <imageView contentMode="scaleToFill" image="INT_Facebook.png" id="7">
+                <imageView translatesAutoresizingMaskIntoConstraints="NO" contentMode="scaleToFill" image="INT_Facebook.png"  id="7">
                     <rect key="frame" x="265" y="505" width="52" height="52"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="INT_Tittle.png" id="13">
+                <imageView translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="INT_Tittle.png"  id="13">
                     <rect key="frame" x="92" y="14" width="125" height="90"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8Vn-TA-p8H">
+                <button translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation"  id="8Vn-TA-p8H">
                     <rect key="frame" x="156" y="418" width="134" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                     <state key="normal" title="Class">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -43,20 +39,17 @@
                         <action selector="enterclass:" destination="-1" eventType="touchUpInside" id="4Kg-kc-suK"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="v69-2f-G6h">
+                <textField translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17"  id="v69-2f-G6h">
                     <rect key="frame" x="156" y="251" width="120" height="31"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <inset key="insetFor6xAndEarlier" minX="-1" minY="-1" maxX="2" maxY="2"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2qe-pY-9vn">
+                <imageView translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251"  id="2qe-pY-9vn">
                     <rect key="frame" x="156" y="335" width="121" height="29"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Z1D-oS-etO">
+                <button translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation"  id="Z1D-oS-etO">
                     <rect key="frame" x="230" y="280" width="77" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <state key="normal" title="NEW CLASS">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -65,9 +58,8 @@
                         <action selector="newclass:" destination="-1" eventType="touchUpInside" id="HSo-zN-juL"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0Bw-I1-nJd">
+                <button translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation"  id="0Bw-I1-nJd">
                     <rect key="frame" x="248" y="364" width="59" height="16"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <state key="normal" title="RENAME">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -76,7 +68,41 @@
                         <action selector="renameclass:" destination="-1" eventType="touchUpInside" id="XJa-km-1Ji"/>
                     </connections>
                 </button>
-            </subviews>
+            </subviews>            <constraints>
+                <constraint firstItem="8" firstAttribute="width" constant="320" id="genC0001"/>
+                <constraint firstItem="8" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" constant="0" id="genC0002"/>
+                <constraint firstItem="8" firstAttribute="height" constant="422" id="genC0003"/>
+                <constraint firstItem="8" firstAttribute="bottom" secondItem="1" secondAttribute="bottom" constant="-0" id="genC0004"/>
+                <constraint firstItem="7" firstAttribute="width" constant="52" id="genC0005"/>
+                <constraint firstItem="7" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" constant="131" id="genC0006"/>
+                <constraint firstItem="7" firstAttribute="height" constant="52" id="genC0007"/>
+                <constraint firstItem="7" firstAttribute="bottom" secondItem="1" secondAttribute="bottom" constant="-11" id="genC0008"/>
+                <constraint firstItem="13" firstAttribute="width" constant="125" id="genC0009"/>
+                <constraint firstItem="13" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" constant="-5.5" id="genC0010"/>
+                <constraint firstItem="13" firstAttribute="height" constant="90" id="genC0011"/>
+                <constraint firstItem="13" firstAttribute="top" secondItem="1" secondAttribute="top" constant="14" id="genC0012"/>
+                <constraint firstItem="8Vn-TA-p8H" firstAttribute="width" constant="134" id="genC0013"/>
+                <constraint firstItem="8Vn-TA-p8H" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="156" id="genC0014"/>
+                <constraint firstItem="8Vn-TA-p8H" firstAttribute="height" constant="34" id="genC0015"/>
+                <constraint firstItem="8Vn-TA-p8H" firstAttribute="bottom" secondItem="1" secondAttribute="bottom" constant="-116" id="genC0016"/>
+                <constraint firstItem="v69-2f-G6h" firstAttribute="width" constant="120" id="genC0017"/>
+                <constraint firstItem="v69-2f-G6h" firstAttribute="trailing" secondItem="1" secondAttribute="trailing" constant="-44" id="genC0018"/>
+                <constraint firstItem="v69-2f-G6h" firstAttribute="height" constant="31" id="genC0019"/>
+                <constraint firstItem="v69-2f-G6h" firstAttribute="bottom" secondItem="1" secondAttribute="bottom" constant="-286" id="genC0020"/>
+                <constraint firstItem="2qe-pY-9vn" firstAttribute="width" constant="121" id="genC0021"/>
+                <constraint firstItem="2qe-pY-9vn" firstAttribute="trailing" secondItem="1" secondAttribute="trailing" constant="-43" id="genC0022"/>
+                <constraint firstItem="2qe-pY-9vn" firstAttribute="height" constant="29" id="genC0023"/>
+                <constraint firstItem="2qe-pY-9vn" firstAttribute="bottom" secondItem="1" secondAttribute="bottom" constant="-204" id="genC0024"/>
+                <constraint firstItem="Z1D-oS-etO" firstAttribute="width" constant="77" id="genC0025"/>
+                <constraint firstItem="Z1D-oS-etO" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="230" id="genC0026"/>
+                <constraint firstItem="Z1D-oS-etO" firstAttribute="height" constant="20" id="genC0027"/>
+                <constraint firstItem="Z1D-oS-etO" firstAttribute="bottom" secondItem="1" secondAttribute="bottom" constant="-268" id="genC0028"/>
+                <constraint firstItem="0Bw-I1-nJd" firstAttribute="width" constant="59" id="genC0029"/>
+                <constraint firstItem="0Bw-I1-nJd" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="248" id="genC0030"/>
+                <constraint firstItem="0Bw-I1-nJd" firstAttribute="height" constant="16" id="genC0031"/>
+                <constraint firstItem="0Bw-I1-nJd" firstAttribute="bottom" secondItem="1" secondAttribute="bottom" constant="-188" id="genC0032"/>
+            </constraints>
+
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

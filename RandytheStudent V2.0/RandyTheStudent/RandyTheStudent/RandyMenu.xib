@@ -21,13 +21,11 @@
             <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="INT_Randy_Main.png" id="4">
+                <imageView translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="INT_Randy_Main.png"  id="4">
                     <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gVN-6p-pMD">
+                <button translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation"  id="gVN-6p-pMD">
                     <rect key="frame" x="601" y="457" width="133" height="37"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="NEW CLASS">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -36,9 +34,8 @@
                         <action selector="newclass:" destination="-1" eventType="touchUpInside" id="5bc-JJ-YYY"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zyl-tK-Xcb">
+                <button translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation"  id="zyl-tK-Xcb">
                     <rect key="frame" x="602" y="531" width="133" height="36"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="RENAME">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -47,23 +44,19 @@
                         <action selector="renameclass:" destination="-1" eventType="touchUpInside" id="2Nq-y5-iLy"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="dTU-Jq-xy0">
+                <textField translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17"  id="dTU-Jq-xy0">
                     <rect key="frame" x="385" y="459" width="217" height="31"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="LQN-uH-UpS">
+                <imageView translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251"  id="LQN-uH-UpS">
                     <rect key="frame" x="385" y="493" width="349" height="42"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView contentMode="scaleToFill" image="INT_Facebook.png" id="5">
+                <imageView translatesAutoresizingMaskIntoConstraints="NO" contentMode="scaleToFill" image="INT_Facebook.png"  id="5">
                     <rect key="frame" x="636" y="884" width="120" height="120"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="T7c-TW-Qh8">
+                <button translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation"  id="T7c-TW-Qh8">
                     <rect key="frame" x="349" y="291" width="247" height="65"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="60"/>
                     <state key="normal" title="Class">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -72,9 +65,8 @@
                         <action selector="enterclass:" destination="-1" eventType="touchUpInside" id="Guf-WK-Vxz"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eJm-DU-BIf">
+                <button translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation"  id="eJm-DU-BIf">
                     <rect key="frame" x="370" y="673" width="247" height="84"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="60"/>
                     <state key="normal" title="Credits">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -83,7 +75,41 @@
                         <action selector="credits:" destination="-1" eventType="touchUpInside" id="ODA-JS-xwZ"/>
                     </connections>
                 </button>
-            </subviews>
+            </subviews>            <constraints>
+                <constraint firstItem="4" firstAttribute="width" constant="768" id="genC0033"/>
+                <constraint firstItem="4" firstAttribute="centerX" secondItem="2" secondAttribute="centerX" constant="0" id="genC0034"/>
+                <constraint firstItem="4" firstAttribute="top" secondItem="2" secondAttribute="top" constant="0" id="genC0035"/>
+                <constraint firstItem="4" firstAttribute="bottom" secondItem="2" secondAttribute="bottom" constant="-0" id="genC0036"/>
+                <constraint firstItem="gVN-6p-pMD" firstAttribute="width" constant="133" id="genC0037"/>
+                <constraint firstItem="gVN-6p-pMD" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="601" id="genC0038"/>
+                <constraint firstItem="gVN-6p-pMD" firstAttribute="height" constant="37" id="genC0039"/>
+                <constraint firstItem="gVN-6p-pMD" firstAttribute="top" secondItem="2" secondAttribute="top" constant="457" id="genC0040"/>
+                <constraint firstItem="zyl-tK-Xcb" firstAttribute="width" constant="133" id="genC0041"/>
+                <constraint firstItem="zyl-tK-Xcb" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="602" id="genC0042"/>
+                <constraint firstItem="zyl-tK-Xcb" firstAttribute="height" constant="36" id="genC0043"/>
+                <constraint firstItem="zyl-tK-Xcb" firstAttribute="top" secondItem="2" secondAttribute="top" constant="531" id="genC0044"/>
+                <constraint firstItem="dTU-Jq-xy0" firstAttribute="width" constant="217" id="genC0045"/>
+                <constraint firstItem="dTU-Jq-xy0" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="385" id="genC0046"/>
+                <constraint firstItem="dTU-Jq-xy0" firstAttribute="height" constant="31" id="genC0047"/>
+                <constraint firstItem="dTU-Jq-xy0" firstAttribute="top" secondItem="2" secondAttribute="top" constant="459" id="genC0048"/>
+                <constraint firstItem="LQN-uH-UpS" firstAttribute="width" constant="349" id="genC0049"/>
+                <constraint firstItem="LQN-uH-UpS" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="385" id="genC0050"/>
+                <constraint firstItem="LQN-uH-UpS" firstAttribute="height" constant="42" id="genC0051"/>
+                <constraint firstItem="LQN-uH-UpS" firstAttribute="top" secondItem="2" secondAttribute="top" constant="493" id="genC0052"/>
+                <constraint firstItem="5" firstAttribute="width" constant="120" id="genC0053"/>
+                <constraint firstItem="5" firstAttribute="centerX" secondItem="2" secondAttribute="centerX" constant="312" id="genC0054"/>
+                <constraint firstItem="5" firstAttribute="height" constant="120" id="genC0055"/>
+                <constraint firstItem="5" firstAttribute="bottom" secondItem="2" secondAttribute="bottom" constant="-20" id="genC0056"/>
+                <constraint firstItem="T7c-TW-Qh8" firstAttribute="width" constant="247" id="genC0057"/>
+                <constraint firstItem="T7c-TW-Qh8" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="349" id="genC0058"/>
+                <constraint firstItem="T7c-TW-Qh8" firstAttribute="height" constant="65" id="genC0059"/>
+                <constraint firstItem="T7c-TW-Qh8" firstAttribute="top" secondItem="2" secondAttribute="top" constant="291" id="genC0060"/>
+                <constraint firstItem="eJm-DU-BIf" firstAttribute="width" constant="247" id="genC0061"/>
+                <constraint firstItem="eJm-DU-BIf" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="370" id="genC0062"/>
+                <constraint firstItem="eJm-DU-BIf" firstAttribute="height" constant="84" id="genC0063"/>
+                <constraint firstItem="eJm-DU-BIf" firstAttribute="top" secondItem="2" secondAttribute="top" constant="673" id="genC0064"/>
+            </constraints>
+
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
         </view>

@@ -29,6 +29,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Force Auto Layout to resolve IvBase's frame now, since it gets copied
+    // into BasesDatos.view.frame below before the deferred layout pass would run.
+    [self.view layoutIfNeeded];
     sub=[[Subtitulados alloc]init];
     valores=[[NSMutableDictionary alloc]init];
     
