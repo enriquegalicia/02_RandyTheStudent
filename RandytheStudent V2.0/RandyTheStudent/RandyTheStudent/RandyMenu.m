@@ -11,7 +11,6 @@
 
 
 @implementation RandyMenu
-@synthesize flipsidePopoverController2;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -150,25 +149,23 @@
 }
 
 -(void)CreditsDidFinish:(Credits*)controller{
-    NSLog(@"Ejecute Cierre");
-    [self.flipsidePopoverController2 dismissPopoverAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 -(IBAction)credits:(id)sender{
+    if (self.presentedViewController) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+        return;
+    }
+    Credits *credits = [[Credits alloc] initWithNibName:@"Credits" bundle:nil];
+    credits.delegatec = self;
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        Credits *credits = [[Credits alloc] initWithNibName:@"Credits" bundle:nil];
-        credits.delegatec = self;
         [self presentViewController:credits animated:YES completion:nil];
     } else {
-        if (!self.flipsidePopoverController2) {
-            Credits *credits = [[Credits alloc] initWithNibName:@"Credits" bundle:nil];
-            credits.delegatec = self;
-            self.flipsidePopoverController2 = [[UIPopoverController alloc] initWithContentViewController:credits];
-        }
-        if ([self.flipsidePopoverController2 isPopoverVisible]) {
-            [self.flipsidePopoverController2 dismissPopoverAnimated:YES];
-        } else {
-            [self.flipsidePopoverController2 presentPopoverFromRect:CGRectMake(0,0,320,480) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
-        }
+        credits.modalPresentationStyle = UIModalPresentationPopover;
+        credits.popoverPresentationController.sourceView = self.view;
+        credits.popoverPresentationController.sourceRect = CGRectMake(0, 0, 320, 480);
+        credits.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionRight;
+        [self presentViewController:credits animated:YES completion:nil];
     }
 }
 -(void)MainDidFinish:(Classes*)controller{

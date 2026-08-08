@@ -27,12 +27,6 @@
     NSUserDefaults *prefs;
     IBOutlet UIImageView* IvBase;
     Subtitulados *sub;
-    UIPopoverController *flipsidePopoverController2;
-
-
-    
-
-
 }
 -(IBAction)enterclass:(id)sender;
 -(IBAction)newclass:(id)sender;
@@ -40,8 +34,6 @@
 -(IBAction)credits:(id)sender;
 -(void)ClassesDidFinish:(Classes*)controller;
 -(void)CreditsDidFinish:(Credits*)controller;
-
-@property(nonatomic,retain)UIPopoverController *flipsidePopoverController2;
 
 
 @end
