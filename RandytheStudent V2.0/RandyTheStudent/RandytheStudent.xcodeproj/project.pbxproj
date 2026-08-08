@@ -246,8 +246,7 @@
 				3DC1570218A953650071C12F /* RandyMenu.m */,
 				3DC1570318A953650071C12F /* RandyMenu.xib */,
 				3DC1570418A953650071C12F /* RandyMenu_Iphone.xib */,
-				3DC5CCE619084533005EA65D /* Credits.h */,
-				3DC5CCE719084533005EA65D /* Credits.m */,
+				EC9ECD63F75D5850AA51AB0E /* Credits.swift */,
 				3DC5CCE819084533005EA65D /* Credits.xib */,
 				3DC5CCEB1908455D005EA65D /* INT_Pizarron_clean.png */,
 			);
@@ -394,7 +393,7 @@
 				3DC156DA18A952C90071C12F /* main.m in Sources */,
 				3DC1570818A953650071C12F /* RandyMenu.m in Sources */,
 				F1324F35DA7D84B32EB808E6 /* ComboBox.swift in Sources */,
-				3DC5CCE919084533005EA65D /* Credits.m in Sources */,
+				EAEC4DECA92A8E3573EEB5B0 /* Credits.swift in Sources */,
 				3DC1571318A9556C0071C12F /* Classes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
