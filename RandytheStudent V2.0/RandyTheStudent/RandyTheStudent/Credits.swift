@@ -4,11 +4,10 @@
 //
 //  Swift port of the original Credits.m (Objective-C). Loads Credits.xib
 //  via the "nib name matches class name" convention; `@objc(Credits)` is
-//  what makes that (and the not-yet-converted RandyMenu.h/.m's use of
-//  this class) keep working.
+//  what makes that (and RandyMenu.swift's use of this class) keep working.
 //
-//  `@objc(CreditsDelegate)` on the delegate protocol keeps RandyMenu.h's
-//  `<..., CreditsDelegate>` conformance declaration compiling unchanged.
+//  `@objc(CreditsDelegate)` on the delegate protocol lets RandyMenu
+//  conform to it directly from Swift.
 //
 //  One deliberate change: `delegatec` was `assign` in the original, i.e.
 //  an unsafe unretained back-reference under ARC (can dangle if the

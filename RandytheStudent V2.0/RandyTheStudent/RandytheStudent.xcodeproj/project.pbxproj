@@ -20,8 +20,7 @@
 		3DC156D018A952C90071C12F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC156CF18A952C90071C12F /* CoreGraphics.framework */; };
 		3DC156D218A952C90071C12F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC156D118A952C90071C12F /* UIKit.framework */; };
 		3DC156D818A952C90071C12F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DC156D618A952C90071C12F /* InfoPlist.strings */; };
-		3DC156DA18A952C90071C12F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC156D918A952C90071C12F /* main.m */; };
-		3DC156DE18A952C90071C12F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC156DD18A952C90071C12F /* AppDelegate.m */; };
+		A814F5B5A6B944D2A1A5B9E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2E2D9E4A9E4F7DBE9CFA8C /* AppDelegate.swift */; };
 		3DC156E018A952C90071C12F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DC156DF18A952C90071C12F /* Images.xcassets */; };
 		3DC156E718A952C90071C12F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC156E618A952C90071C12F /* XCTest.framework */; };
 		3DC156E818A952C90071C12F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC156CD18A952C90071C12F /* Foundation.framework */; };
@@ -31,11 +30,11 @@
 		3DC1570518A953650071C12F /* INT_Tittle.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DC156FE18A953650071C12F /* INT_Tittle.png */; };
 		3DC1570618A953650071C12F /* INT_Randy_solo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DC156FF18A953650071C12F /* INT_Randy_solo.png */; };
 		3DC1570718A953650071C12F /* INT_Notittle_randy.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DC1570018A953650071C12F /* INT_Notittle_randy.png */; };
-		3DC1570818A953650071C12F /* RandyMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC1570218A953650071C12F /* RandyMenu.m */; };
+		D43C48D2400D6B6204D071E5 /* RandyMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE716D443B6453B7BB0900BD /* RandyMenu.swift */; };
 		3DC1570918A953650071C12F /* RandyMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DC1570318A953650071C12F /* RandyMenu.xib */; };
 		3DC1570A18A953650071C12F /* RandyMenu_Iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DC1570418A953650071C12F /* RandyMenu_Iphone.xib */; };
 		3DC1570D18A953A30071C12F /* INT_Randy_Main.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DC1570C18A953A30071C12F /* INT_Randy_Main.png */; };
-		3DC1571318A9556C0071C12F /* Classes.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC1571018A9556C0071C12F /* Classes.m */; };
+		965CBE8EF407B11005F175DE /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0D5891593AAEFBD6FC36D4 /* Classes.swift */; };
 		3DC1571418A9556C0071C12F /* MainViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DC1571118A9556C0071C12F /* MainViewController_iPhone.xib */; };
 		3DC1571518A9556C0071C12F /* MainViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DC1571218A9556C0071C12F /* MainViewController_iPad.xib */; };
 		3DC1571818A955AE0071C12F /* INT_Fondo_Randy.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DC1571718A955AE0071C12F /* INT_Fondo_Randy.png */; };
@@ -66,7 +65,6 @@
 		3DB8C64E18A97A8A0044B6BA /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		902E1A6BF15DE520B7643BC8 /* ComboBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComboBox.swift; sourceTree = "<group>"; };
 		3DB8C65118A97A8A0044B6BA /* ComboBox.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComboBox.xib; sourceTree = "<group>"; };
-		3DB8C65718A97CF50044B6BA /* DataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBase.h; sourceTree = "<group>"; };
 		3DB8C65818A982280044B6BA /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		D4595A0C727A06AA57EF110F /* Subtitulados.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subtitulados.swift; sourceTree = "<group>"; };
 		3DC156CA18A952C90071C12F /* RandytheStudent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandytheStudent.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,11 +73,7 @@
 		3DC156D118A952C90071C12F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3DC156D518A952C90071C12F /* RandytheStudent-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RandytheStudent-Info.plist"; sourceTree = "<group>"; };
 		3DC156D718A952C90071C12F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		3DC156D918A952C90071C12F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3DC156DB18A952C90071C12F /* RandytheStudent-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RandytheStudent-Prefix.pch"; sourceTree = "<group>"; };
-		D3F0B1AE00000000000000A1 /* RandyTheStudent-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RandyTheStudent-Bridging-Header.h"; sourceTree = "<group>"; };
-		3DC156DC18A952C90071C12F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		3DC156DD18A952C90071C12F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6D2E2D9E4A9E4F7DBE9CFA8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DC156DF18A952C90071C12F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3DC156E518A952C90071C12F /* RandyTheStudentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RandyTheStudentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC156E618A952C90071C12F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -89,13 +83,11 @@
 		3DC156FE18A953650071C12F /* INT_Tittle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = INT_Tittle.png; sourceTree = "<group>"; };
 		3DC156FF18A953650071C12F /* INT_Randy_solo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = INT_Randy_solo.png; sourceTree = "<group>"; };
 		3DC1570018A953650071C12F /* INT_Notittle_randy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = INT_Notittle_randy.png; sourceTree = "<group>"; };
-		3DC1570118A953650071C12F /* RandyMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandyMenu.h; sourceTree = "<group>"; };
-		3DC1570218A953650071C12F /* RandyMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandyMenu.m; sourceTree = "<group>"; };
+		FE716D443B6453B7BB0900BD /* RandyMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandyMenu.swift; sourceTree = "<group>"; };
 		3DC1570318A953650071C12F /* RandyMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RandyMenu.xib; sourceTree = "<group>"; };
 		3DC1570418A953650071C12F /* RandyMenu_Iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RandyMenu_Iphone.xib; sourceTree = "<group>"; };
 		3DC1570C18A953A30071C12F /* INT_Randy_Main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = INT_Randy_Main.png; sourceTree = "<group>"; };
-		3DC1570F18A9556C0071C12F /* Classes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Classes.h; sourceTree = "<group>"; };
-		3DC1571018A9556C0071C12F /* Classes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Classes.m; sourceTree = "<group>"; };
+		CF0D5891593AAEFBD6FC36D4 /* Classes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
 		3DC1571118A9556C0071C12F /* MainViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController_iPhone.xib; sourceTree = "<group>"; };
 		3DC1571218A9556C0071C12F /* MainViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController_iPad.xib; sourceTree = "<group>"; };
 		3DC1571718A955AE0071C12F /* INT_Fondo_Randy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = INT_Fondo_Randy.png; sourceTree = "<group>"; };
@@ -169,8 +161,7 @@
 			children = (
 				3DC156FC18A952D10071C12F /* Clases */,
 				3DC156FD18A952D60071C12F /* Controladores */,
-				3DC156DC18A952C90071C12F /* AppDelegate.h */,
-				3DC156DD18A952C90071C12F /* AppDelegate.m */,
+				6D2E2D9E4A9E4F7DBE9CFA8C /* AppDelegate.swift */,
 				3DC156DF18A952C90071C12F /* Images.xcassets */,
 				3DC156D418A952C90071C12F /* Supporting Files */,
 			);
@@ -183,9 +174,6 @@
 				3DC156D518A952C90071C12F /* RandytheStudent-Info.plist */,
 				86716C943C605D88745AC27C /* PrivacyInfo.xcprivacy */,
 				3DC156D618A952C90071C12F /* InfoPlist.strings */,
-				3DC156D918A952C90071C12F /* main.m */,
-				3DC156DB18A952C90071C12F /* RandytheStudent-Prefix.pch */,
-				D3F0B1AE00000000000000A1 /* RandyTheStudent-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -242,8 +230,7 @@
 				3DC156FE18A953650071C12F /* INT_Tittle.png */,
 				3DC156FF18A953650071C12F /* INT_Randy_solo.png */,
 				3DC1570018A953650071C12F /* INT_Notittle_randy.png */,
-				3DC1570118A953650071C12F /* RandyMenu.h */,
-				3DC1570218A953650071C12F /* RandyMenu.m */,
+				FE716D443B6453B7BB0900BD /* RandyMenu.swift */,
 				3DC1570318A953650071C12F /* RandyMenu.xib */,
 				3DC1570418A953650071C12F /* RandyMenu_Iphone.xib */,
 				EC9ECD63F75D5850AA51AB0E /* Credits.swift */,
@@ -257,8 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				3DC1571718A955AE0071C12F /* INT_Fondo_Randy.png */,
-				3DC1570F18A9556C0071C12F /* Classes.h */,
-				3DC1571018A9556C0071C12F /* Classes.m */,
+				CF0D5891593AAEFBD6FC36D4 /* Classes.swift */,
 				3DC1571118A9556C0071C12F /* MainViewController_iPhone.xib */,
 				3DC1571218A9556C0071C12F /* MainViewController_iPad.xib */,
 			);
@@ -384,17 +370,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BDEF949FE2A50A1C57A1D43 /* Subtitulados.swift in Sources */,
-				3DC156DE18A952C90071C12F /* AppDelegate.m in Sources */,
+				A814F5B5A6B944D2A1A5B9E1 /* AppDelegate.swift in Sources */,
 				75F16E276512442AFBA15BE2 /* InfoCharts.swift in Sources */,
 				3112F81B393366A1B1A8E94B /* UserPreferences.swift in Sources */,
 				C41E518A9EAAF4978DA68337 /* DataBase.swift in Sources */,
 				254358B7F72E5D2D92819ECA /* SmoothedBIView.swift in Sources */,
 				A5BDAF588AB8030B5D20AD54 /* BasicTable.swift in Sources */,
-				3DC156DA18A952C90071C12F /* main.m in Sources */,
-				3DC1570818A953650071C12F /* RandyMenu.m in Sources */,
+				D43C48D2400D6B6204D071E5 /* RandyMenu.swift in Sources */,
 				F1324F35DA7D84B32EB808E6 /* ComboBox.swift in Sources */,
 				EAEC4DECA92A8E3573EEB5B0 /* Credits.swift in Sources */,
-				3DC1571318A9556C0071C12F /* Classes.m in Sources */,
+				965CBE8EF407B11005F175DE /* Classes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,12 +515,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M4T54FHTC9;
 				DEFINES_MODULE = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RandyTheStudent/RandytheStudent-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/RandyTheStudent/RandytheStudent-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				PRODUCT_NAME = RandytheStudent;
-				SWIFT_OBJC_BRIDGING_HEADER = "RandyTheStudent/RandyTheStudent-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -553,12 +535,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M4T54FHTC9;
 				DEFINES_MODULE = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RandyTheStudent/RandytheStudent-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/RandyTheStudent/RandytheStudent-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				PRODUCT_NAME = RandytheStudent;
-				SWIFT_OBJC_BRIDGING_HEADER = "RandyTheStudent/RandyTheStudent-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -577,8 +556,6 @@
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RandyTheStudent/RandyTheStudent-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -602,8 +579,6 @@
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RandyTheStudent/RandyTheStudent-Prefix.pch";
 				INFOPLIST_FILE = "RandyTheStudentTests/RandytheStudent-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Magnificent.RandyTheStudentTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

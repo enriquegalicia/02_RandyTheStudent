@@ -7,12 +7,11 @@
 //  http://doralon.net). Loads ComboBox.xib via the "nib name matches
 //  class name" convention, and that nib's customClass="ComboBox" +
 //  action/outlet wiring is why `@objc(ComboBox)` is required here, not
-//  just for interop with the not-yet-converted Objective-C callers
-//  (RandyMenu.h/.m).
+//  just for interop.
 //
-//  `@objc(ComboDelegate)` on the delegate protocol keeps RandyMenu.h's
-//  and Classes.h's `<ComboDelegate, ...>` conformance declarations
-//  compiling unchanged until those files are converted too.
+//  `@objc(ComboDelegate)` on the delegate protocol is what lets Classes
+//  and RandyMenu conform to it directly from Swift, under the original
+//  protocol name.
 //
 //  One deliberate change: `delegadocombo` was `retain` (strong) in the
 //  original — a retain cycle, since the owning view controller also

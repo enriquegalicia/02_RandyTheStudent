@@ -4,15 +4,14 @@
 //
 //  Swift port of the original BasicTable.m (Objective-C) — a small
 //  reusable UITableViewController used as an embedded subview (its
-//  `.view` gets manually re-parented; see Classes.m). Loads BasicTable.xib
-//  via the standard "nib name matches class name" convention, which is
-//  why `@objc(BasicTable)` matters here, not just for ObjC interop:
-//  NSStringFromClass(self) has to come back as "BasicTable" for that nib
-//  lookup to find the file.
+//  `.view` gets manually re-parented; see Classes.swift). Loads
+//  BasicTable.xib via the standard "nib name matches class name"
+//  convention, which is why `@objc(BasicTable)` matters here, not just
+//  for ObjC interop: NSStringFromClass(self) has to come back as
+//  "BasicTable" for that nib lookup to find the file.
 //
-//  `@objc(basictable)` on the delegate protocol keeps Classes.h's (still
-//  Objective-C, until it's converted) `<basictable, ComboDelegate>`
-//  conformance declaration compiling unchanged.
+//  `@objc(basictable)` on the delegate protocol is what lets Classes
+//  conform to it directly from Swift, under the original protocol name.
 //
 //  One deliberate change: `delegadobase` was `retain` (strong) in the
 //  original, which is a real retain cycle (Classes owns TAlumnos/TGrupos/
