@@ -1,0 +1,103 @@
+//
+//  ActivitiesView.swift
+//  RandyTheStudent
+//
+//  Grade each group's performance on a saved activity, or remove an
+//  activity entirely. Replaces the "Grupo" control group from the old
+//  Classes.swift.
+//
+
+import SwiftUI
+import AguaDesign
+
+struct ActivitiesView: View {
+    var store: ClassStore
+
+    @State private var gradeDrafts: [String: String] = [:]
+    @State private var activityPendingDeletion: String?
+
+    private var groupedByActivity: [(name: String, grades: [ActivityGrade])] {
+        Dictionary(grouping: store.activityGrades, by: \.activityName)
+            .map { (name: $0.key, grades: $0.value.sorted { $0.groupNumber < $1.groupNumber }) }
+            .sorted { $0.name < $1.name }
+    }
+
+    var body: some View {
+        NavigationStack {
+            List {
+                if groupedByActivity.isEmpty {
+                    ContentUnavailableView(
+                        "No Activities Yet",
+                        systemImage: "checkmark.circle",
+                        description: Text("Generate groups, then save them as an activity to start grading.")
+                    )
+                    .listRowBackground(Color.clear)
+                } else {
+                    ForEach(groupedByActivity, id: \.name) { activity in
+                        Section {
+                            ForEach(activity.grades) { grade in
+                                HStack {
+                                    Text(grade.groupLabel)
+                                        .foregroundStyle(AguaColor.textPrimary)
+                                    Spacer()
+                                    TextField(
+                                        "Grade",
+                                        text: Binding(
+                                            get: { gradeDrafts[grade.id] ?? formatted(grade.grade) },
+                                            set: { gradeDrafts[grade.id] = $0 }
+                                        )
+                                    )
+                                    .keyboardType(.decimalPad)
+                                    .multilineTextAlignment(.trailing)
+                                    .frame(width: 80)
+                                    .textFieldStyle(.roundedBorder)
+                                    .onSubmit { save(grade) }
+                                    Button("Save") { save(grade) }
+                                        .buttonStyle(.bordered)
+                                }
+                            }
+                        } header: {
+                            AguaGroupHeader(activity.name)
+                        }
+                        .listRowBackground(AguaColor.bgCard)
+                        .swipeActions(edge: .trailing) {
+                            Button(role: .destructive) {
+                                activityPendingDeletion = activity.name
+                            } label: {
+                                Label("Delete", systemImage: "trash")
+                            }
+                        }
+                    }
+                }
+            }
+            .scrollContentBackground(.hidden)
+            .aguaBackground()
+        }
+        .confirmationDialog(
+            "Delete this activity for every group?",
+            isPresented: Binding(
+                get: { activityPendingDeletion != nil },
+                set: { isPresented in if !isPresented { activityPendingDeletion = nil } }
+            ),
+            titleVisibility: .visible,
+            presenting: activityPendingDeletion
+        ) { name in
+            Button("Delete \"\(name)\"", role: .destructive) {
+                store.deleteActivity(named: name)
+                activityPendingDeletion = nil
+            }
+            Button("Cancel", role: .cancel) { activityPendingDeletion = nil }
+        }
+    }
+
+    private func save(_ grade: ActivityGrade) {
+        let text = gradeDrafts[grade.id] ?? formatted(grade.grade)
+        guard let value = Double(text) else { return }
+        store.gradeGroup(groupNumber: grade.groupNumber, activityName: grade.activityName, grade: value)
+        gradeDrafts[grade.id] = nil
+    }
+
+    private func formatted(_ value: Double) -> String {
+        value == value.rounded() ? String(Int(value)) : String(value)
+    }
+}
