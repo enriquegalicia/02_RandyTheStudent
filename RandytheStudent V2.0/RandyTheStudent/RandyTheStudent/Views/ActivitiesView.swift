@@ -15,6 +15,9 @@ struct ActivitiesView: View {
 
     @State private var gradeDrafts: [String: String] = [:]
     @State private var activityPendingDeletion: String?
+    @State private var showingAddActivity = false
+    @State private var showingNoGroupsYet = false
+    @State private var newActivityName = ""
 
     private var groupedByActivity: [(name: String, grades: [ActivityGrade])] {
         Dictionary(grouping: store.activityGrades, by: \.activityName)
@@ -72,6 +75,36 @@ struct ActivitiesView: View {
             }
             .scrollContentBackground(.hidden)
             .aguaBackground()
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button {
+                        if store.groups.isEmpty {
+                            showingNoGroupsYet = true
+                        } else {
+                            newActivityName = ""
+                            showingAddActivity = true
+                        }
+                    } label: {
+                        Label("Add Activity", systemImage: "plus")
+                    }
+                }
+            }
+        }
+        .alert("New Activity", isPresented: $showingAddActivity) {
+            TextField("Activity name", text: $newActivityName)
+            Button("Save") {
+                store.saveCurrentAssignment(asActivity: newActivityName)
+                newActivityName = ""
+            }
+            .disabled(newActivityName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("Saves the groups you generated in the Groups tab under this name.")
+        }
+        .alert("No Groups Yet", isPresented: $showingNoGroupsYet) {
+            Button("OK") {}
+        } message: {
+            Text("Generate groups in the Groups tab first, then come back here to save them as an activity.")
         }
         .confirmationDialog(
             "Delete this activity for every group?",

@@ -18,6 +18,11 @@ struct RosterView: View {
     @State private var email = ""
     @State private var editingStudent: Student?
     @State private var studentPendingDeletion: Student?
+    @FocusState private var focusedField: Field?
+
+    private enum Field {
+        case studentId, firstName, lastName, email
+    }
 
     var body: some View {
         NavigationStack {
@@ -26,11 +31,15 @@ struct RosterView: View {
                     VStack(spacing: AguaSpacing.s) {
                         TextField("Student ID", text: $studentId)
                             .disabled(editingStudent != nil)
+                            .focused($focusedField, equals: .studentId)
                         TextField("First Name", text: $firstName)
+                            .focused($focusedField, equals: .firstName)
                         TextField("Last Name", text: $lastName)
+                            .focused($focusedField, equals: .lastName)
                         TextField("Email", text: $email)
                             .keyboardType(.emailAddress)
                             .textInputAutocapitalization(.never)
+                            .focused($focusedField, equals: .email)
                     }
                     .textFieldStyle(.roundedBorder)
                     .padding(.vertical, AguaSpacing.xs)
@@ -39,16 +48,21 @@ struct RosterView: View {
                         if let editingStudent {
                             Button("Update") {
                                 if store.updateStudent(studentId: editingStudent.studentId, firstName: firstName, lastName: lastName, email: email) {
+                                    focusedField = nil
                                     clearForm()
                                 }
                             }
                             .buttonStyle(.borderedProminent)
                             .tint(AguaColor.Accent.blue)
 
-                            Button("Cancel", role: .cancel) { clearForm() }
+                            Button("Cancel", role: .cancel) {
+                                focusedField = nil
+                                clearForm()
+                            }
                         } else {
                             Button("Add Student") {
                                 if store.addStudent(studentId: studentId, firstName: firstName, lastName: lastName, email: email) {
+                                    focusedField = nil
                                     clearForm()
                                 }
                             }

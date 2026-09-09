@@ -25,6 +25,7 @@ final class ClassLibraryStore {
             try ensureDefaultClassExists()
             try reload()
         } catch {
+            log("open library", error)
             errorMessage = String(localized: "Couldn't open the class library.")
         }
     }
@@ -62,6 +63,7 @@ final class ClassLibraryStore {
             try reload()
             return true
         } catch {
+            log("create class", error)
             errorMessage = String(localized: "Couldn't create the class. Try again.")
             return false
         }
@@ -79,6 +81,7 @@ final class ClassLibraryStore {
             try reload()
             return true
         } catch {
+            log("rename class", error)
             errorMessage = String(localized: "Couldn't rename the class. Try again.")
             return false
         }
@@ -91,6 +94,7 @@ final class ClassLibraryStore {
             try reload()
             return true
         } catch {
+            log("delete class", error)
             errorMessage = String(localized: "Couldn't delete the class. Try again.")
             return false
         }
@@ -98,5 +102,12 @@ final class ClassLibraryStore {
 
     func clearError() {
         errorMessage = nil
+    }
+
+    /// Prints the real underlying error to the console — `errorMessage` is
+    /// deliberately generic for the user, but when something fails it's
+    /// otherwise invisible what actually went wrong.
+    private func log(_ context: String, _ error: Error) {
+        print("[ClassLibraryStore] \(context) failed: \(error)")
     }
 }

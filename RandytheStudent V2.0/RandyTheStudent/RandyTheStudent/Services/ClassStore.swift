@@ -67,12 +67,20 @@ final class ClassStore {
             try reloadStudents()
             try reloadActivities()
         } catch {
+            log("open class", error)
             errorMessage = String(localized: "Couldn't open this class.")
         }
     }
 
     func clearError() {
         errorMessage = nil
+    }
+
+    /// Prints the real underlying error to the console — `errorMessage` is
+    /// deliberately generic for the user, but when something fails it's
+    /// otherwise invisible what actually went wrong.
+    private func log(_ context: String, _ error: Error) {
+        print("[ClassStore] \(context) failed: \(error)")
     }
 
     // MARK: - Roster
@@ -110,6 +118,7 @@ final class ClassStore {
             try reloadStudents()
             return true
         } catch {
+            log("save student", error)
             errorMessage = String(localized: "Couldn't save the student. Try again.")
             return false
         }
@@ -137,6 +146,7 @@ final class ClassStore {
             try reloadStudents()
             return true
         } catch {
+            log("update student", error)
             errorMessage = String(localized: "Couldn't update the student. Try again.")
             return false
         }
@@ -149,6 +159,7 @@ final class ClassStore {
             try reloadStudents()
             return true
         } catch {
+            log("delete student", error)
             errorMessage = String(localized: "Couldn't delete the student. Try again.")
             return false
         }
@@ -184,6 +195,7 @@ final class ClassStore {
             selectedParticipant = students.first(where: { $0.id == participant.id })
             return true
         } catch {
+            log("record participation", error)
             errorMessage = String(localized: "Couldn't record participation. Try again.")
             return false
         }
@@ -363,8 +375,10 @@ final class ClassStore {
             slots = newSlots
             payload = newPayload
             rebuildGroups()
+            print("[ClassStore] generated \(groups.count) group(s) for \(payload.count) student(s), hasAntecedents=\(hasAntecedents)")
             return true
         } catch {
+            log("generate groups", error)
             errorMessage = String(localized: "Couldn't generate groups. Try again.")
             return false
         }
@@ -418,9 +432,18 @@ final class ClassStore {
     @discardableResult
     func saveCurrentAssignment(asActivity name: String) -> Bool {
         let name = name.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !name.isEmpty, !payload.isEmpty else { return false }
+        guard !name.isEmpty else {
+            print("[ClassStore] save activity skipped: empty name")
+            return false
+        }
+        guard !payload.isEmpty else {
+            print("[ClassStore] save activity skipped: no groups generated yet")
+            errorMessage = String(localized: "Generate groups first, then save them as an activity.")
+            return false
+        }
         do {
             let existingStudentIds = Set(try fetchRawGroupRows().filter { $0.activity == name }.map(\.studentId))
+            var inserted = 0
             for (index, member) in payload.enumerated() {
                 guard !existingStudentIds.contains(member.studentId) else { continue }
                 let slot = slots[index]
@@ -428,10 +451,13 @@ final class ClassStore {
                     "INSERT INTO GRUPOS(GRUPONO, ALUMNOSID, ACTIVIDAD, POSICION, CALIFICACION) VALUES (?, ?, ?, ?, ?)",
                     params: [.text("G\(slot.group)"), .text(member.studentId), .text(name), .text(slot.role), .double(0)]
                 )
+                inserted += 1
             }
             try reloadActivities()
+            print("[ClassStore] saved activity \"\(name)\": inserted \(inserted) row(s), \(payload.count - inserted) already existed; activityGrades now has \(activityGrades.count) row(s)")
             return true
         } catch {
+            log("save activity", error)
             errorMessage = String(localized: "Couldn't save the activity. Try again.")
             return false
         }
@@ -444,6 +470,7 @@ final class ClassStore {
             try reloadActivities()
             return true
         } catch {
+            log("delete activity", error)
             errorMessage = String(localized: "Couldn't delete the activity. Try again.")
             return false
         }
@@ -459,6 +486,7 @@ final class ClassStore {
             try reloadActivities()
             return true
         } catch {
+            log("save grade", error)
             errorMessage = String(localized: "Couldn't save the grade. Try again.")
             return false
         }
@@ -466,15 +494,31 @@ final class ClassStore {
 
     // MARK: - Stats
 
+    /// The `count` students who've participated the most, and the `count`
+    /// who've participated the least (least-active first, so the student
+    /// needing the most attention is at the top of that list).
+    func participationRanking(top count: Int = 3) -> (mostActive: [Student], leastActive: [Student]) {
+        let ranked = students.sorted { $0.participations > $1.participations }
+        let mostActive = Array(ranked.prefix(count))
+        let leastActive = Array(ranked.suffix(count).reversed())
+        return (mostActive, leastActive)
+    }
+
     func chartData() -> (activities: [ActivityBreakdown], students: [StudentBreakdown]) {
         guard let rows = try? fetchRawGroupRows() else { return ([], []) }
 
-        let activityNames = Set(rows.map(\.activity)).sorted()
+        // One bar per (activity, group) — not per student — since every student
+        // in a group shares that group's grade; segmenting by student just
+        // repeated the same value and made totals meaningless. The average is
+        // across the activity's groups, so it's easy to compare activities.
+        let activityNames = Set(activityGrades.map(\.activityName)).sorted()
         let activityBreakdowns = activityNames.map { activity -> ActivityBreakdown in
-            let segments = rows.filter { $0.activity == activity }.map {
-                GradeSegment(label: studentName(for: $0.studentId), value: $0.grade)
-            }
-            return ActivityBreakdown(activityName: activity, segments: segments)
+            let matching = activityGrades
+                .filter { $0.activityName == activity }
+                .sorted { $0.groupNumber < $1.groupNumber }
+            let segments = matching.map { GradeSegment(label: $0.groupLabel, value: $0.grade) }
+            let average = matching.isEmpty ? 0 : matching.map(\.grade).reduce(0, +) / Double(matching.count)
+            return ActivityBreakdown(activityName: activity, average: average, segments: segments)
         }
 
         var totals: [String: Double] = [:]
@@ -485,9 +529,20 @@ final class ClassStore {
             for row in rows where row.studentId == studentId {
                 byRole[row.role, default: 0] += row.grade
             }
-            let segments = byRole.keys.sorted().map { GradeSegment(label: $0, value: byRole[$0]!) }
+            let segments = byRole.keys.sorted().map { GradeSegment(label: Self.displayRole($0), value: byRole[$0]!) }
             return StudentBreakdown(studentId: studentId, studentName: studentName(for: studentId), segments: segments)
         }
         return (activityBreakdowns, studentBreakdowns)
+    }
+
+    /// Roles are generated and stored as "Rol N" (see `generateGroups`) — a
+    /// fixed internal identifier persisted in the GRUPOS table's POSICION
+    /// column and matched against history to avoid repeat role assignments,
+    /// not translated text. Changing that stored format would need a data
+    /// migration, so this maps it to a properly localized display string
+    /// instead, wherever a role is shown to the user.
+    static func displayRole(_ role: String) -> String {
+        guard let n = Int(role.split(separator: " ").last ?? "") else { return role }
+        return String(localized: "Role \(n)")
     }
 }

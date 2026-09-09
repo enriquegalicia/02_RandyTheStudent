@@ -17,8 +17,9 @@ enum SQLiteValue {
     case double(Double)
 }
 
-struct SQLiteError: Error {
+struct SQLiteError: Error, CustomStringConvertible {
     let message: String
+    var description: String { message }
 }
 
 final class SQLiteConnection {
@@ -29,10 +30,20 @@ final class SQLiteConnection {
         self.path = (docsDir as NSString).appendingPathComponent(fileName)
     }
 
-    /// Creates the table if the database file doesn't exist yet. `columns` are
-    /// appended after an auto-incrementing `ID INTEGER PRIMARY KEY` column.
+    /// Creates the table if it doesn't exist yet. `columns` are appended
+    /// after an auto-incrementing `ID INTEGER PRIMARY KEY` column.
+    ///
+    /// This used to guard on `FileManager.fileExists(atPath: path)` instead
+    /// of just always running `CREATE TABLE IF NOT EXISTS` — which is wrong
+    /// at the file granularity: `sqlite3_open` itself creates the database
+    /// file on first open, so the SECOND call to this method for a brand
+    /// new database (e.g. GRUPOS, right after ESTUDIANTES) saw the file
+    /// already existing and skipped creating its table entirely. Every new
+    /// class ended up with an ESTUDIANTES table but no GRUPOS table, so
+    /// anything touching groups/activities failed with "no such table:
+    /// GRUPOS" the moment it queried it — including the app's own startup
+    /// read, which is why "Couldn't open this class" appeared immediately.
     func createTableIfNeeded(table: String, columns: [(name: String, type: String)]) throws {
-        guard !FileManager.default.fileExists(atPath: path) else { return }
         try withConnection { db in
             var sql = "CREATE TABLE IF NOT EXISTS \(table) (ID INTEGER PRIMARY KEY AUTOINCREMENT"
             for column in columns {

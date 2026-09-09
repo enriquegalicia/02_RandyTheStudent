@@ -21,5 +21,5 @@ struct StudentGroup: Identifiable, Hashable {
     var members: [GroupMember]
 
     var id: Int { number }
-    var label: String { "Group \(number)" }
+    var label: String { String(localized: "Group \(number)") }
 }

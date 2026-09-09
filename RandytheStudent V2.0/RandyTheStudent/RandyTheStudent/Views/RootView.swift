@@ -36,6 +36,11 @@ struct RootView: View {
         .sheet(isPresented: $showingCredits) {
             CreditsView()
         }
+        .task { // TEMP: revert before shipping
+            if selectedClass == nil {
+                selectedClass = library.classes.first
+            }
+        }
     }
 }
 

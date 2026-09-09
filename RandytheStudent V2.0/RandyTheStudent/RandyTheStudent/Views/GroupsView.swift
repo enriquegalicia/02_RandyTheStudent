@@ -16,6 +16,8 @@ struct GroupsView: View {
 
     @State private var groupCount = 2
     @State private var activityName = ""
+    @State private var showingSavedConfirmation = false
+    @FocusState private var isActivityNameFocused: Bool
 
     private let groupCountRange = 2...6
 
@@ -57,13 +59,12 @@ struct GroupsView: View {
                         HStack(spacing: AguaSpacing.s) {
                             TextField("Activity name", text: $activityName)
                                 .textFieldStyle(.roundedBorder)
-                            Button("Save") {
-                                if store.saveCurrentAssignment(asActivity: activityName) {
-                                    activityName = ""
-                                }
-                            }
-                            .buttonStyle(.bordered)
-                            .disabled(activityName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                                .focused($isActivityNameFocused)
+                                .submitLabel(.done)
+                                .onSubmit(saveActivity)
+                            Button("Save", action: saveActivity)
+                                .buttonStyle(.bordered)
+                                .disabled(activityName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
                         }
                     }
                 }
@@ -84,7 +85,11 @@ struct GroupsView: View {
                                     Text(entry.member.studentName)
                                         .font(.body.weight(.semibold))
                                         .foregroundStyle(AguaColor.textPrimary)
-                                    Text("\(entry.member.role) · \(entry.member.priorRoleCount == 1 ? "previously held 1 time" : "previously held \(entry.member.priorRoleCount) times")")
+                                    // A ternary nested inside this string's own interpolation would
+                                    // force its branches to plain String (not LocalizedStringKey),
+                                    // silently skipping table lookup — resolve it via String(localized:)
+                                    // first instead, so both branches get a translated key.
+                                    Text("\(ClassStore.displayRole(entry.member.role)) · \(Self.previouslyHeldText(entry.member.priorRoleCount))")
                                         .font(.caption)
                                         .foregroundStyle(AguaColor.textMuted)
                                 }
@@ -101,10 +106,29 @@ struct GroupsView: View {
                         }
                     }
                     .scrollContentBackground(.hidden)
+                    .scrollDismissesKeyboard(.interactively)
                     .toolbar { EditButton() }
                 }
             }
             .aguaBackground()
         }
+        .alert("Activity Saved", isPresented: $showingSavedConfirmation) {
+            Button("OK") {}
+        } message: {
+            Text("Open the Activities tab to grade each group.")
+        }
+    }
+
+    private func saveActivity() {
+        guard store.saveCurrentAssignment(asActivity: activityName) else { return }
+        activityName = ""
+        isActivityNameFocused = false
+        showingSavedConfirmation = true
+    }
+
+    private static func previouslyHeldText(_ count: Int) -> String {
+        count == 1
+            ? String(localized: "previously held 1 time")
+            : String(localized: "previously held \(count) times")
     }
 }

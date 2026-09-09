@@ -13,7 +13,7 @@ import AguaDesign
 
 private struct Credit: Identifiable {
     let id = UUID()
-    let role: String
+    let role: LocalizedStringKey
     let names: String
 }
 
@@ -61,7 +61,7 @@ struct CreditsView: View {
                 .listRowBackground(AguaColor.bgCard)
 
                 Section {
-                    Text("Powered by Magnificent")
+                    Text("Powered by Aguachile Labs")
                         .font(.footnote)
                         .foregroundStyle(AguaColor.textMuted)
                         .frame(maxWidth: .infinity)

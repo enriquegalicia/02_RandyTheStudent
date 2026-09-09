@@ -65,6 +65,22 @@
         }
       }
     },
+    "%lld.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld."
+          }
+        }
+      }
+    },
     "1 participation": {
       "localizations": {
         "en": {
@@ -161,6 +177,38 @@
         }
       }
     },
+    "Activity": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activity"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Actividad"
+          }
+        }
+      }
+    },
+    "Activity Saved": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activity Saved"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Actividad Guardada"
+          }
+        }
+      }
+    },
     "Activity name": {
       "localizations": {
         "en": {
@@ -189,6 +237,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Agregar"
+          }
+        }
+      }
+    },
+    "Add Activity": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add Activity"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Agregar Actividad"
           }
         }
       }
@@ -241,6 +305,22 @@
         }
       }
     },
+    "Add students to the roster to see stats here.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add students to the roster to see stats here."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Agrega estudiantes a la lista para ver estadísticas aquí."
+          }
+        }
+      }
+    },
     "Add your first student above.": {
       "localizations": {
         "en": {
@@ -253,6 +333,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Agrega tu primer estudiante arriba."
+          }
+        }
+      }
+    },
+    "Average": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Average"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Promedio"
           }
         }
       }
@@ -673,6 +769,38 @@
         }
       }
     },
+    "Developer": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Developer"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desarrollador"
+          }
+        }
+      }
+    },
+    "Diamond marks each activity's average across its groups.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diamond marks each activity's average across its groups."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El diamante marca el promedio de cada actividad entre sus grupos."
+          }
+        }
+      }
+    },
     "Done": {
       "localizations": {
         "en": {
@@ -785,6 +913,38 @@
         }
       }
     },
+    "Generate groups first, then save them as an activity.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Generate groups first, then save them as an activity."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Primero genera los grupos y luego guárdalos como una actividad."
+          }
+        }
+      }
+    },
+    "Generate groups in the Groups tab first, then come back here to save them as an activity.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Generate groups in the Groups tab first, then come back here to save them as an activity."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Primero genera grupos en la pestaña Grupos y luego regresa aquí para guardarlos como una actividad."
+          }
+        }
+      }
+    },
     "Generate groups, then save them as an activity to start grading.": {
       "localizations": {
         "en": {
@@ -813,6 +973,54 @@
           "stringUnit": {
             "state": "translated",
             "value": "Calificación"
+          }
+        }
+      }
+    },
+    "Grades by Activity": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grades by Activity"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calificaciones por Actividad"
+          }
+        }
+      }
+    },
+    "Grades by Student": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grades by Student"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calificaciones por Estudiante"
+          }
+        }
+      }
+    },
+    "Group": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Group"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grupo"
           }
         }
       }
@@ -897,6 +1105,22 @@
         }
       }
     },
+    "Most Active": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Most Active"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Más Participativos"
+          }
+        }
+      }
+    },
     "Name": {
       "localizations": {
         "en": {
@@ -909,6 +1133,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "Nombre"
+          }
+        }
+      }
+    },
+    "Needs Attention": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Needs Attention"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Necesitan Atención"
+          }
+        }
+      }
+    },
+    "New Activity": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "New Activity"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nueva Actividad"
           }
         }
       }
@@ -957,6 +1213,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Aún No Hay Clases"
+          }
+        }
+      }
+    },
+    "No Data Yet": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No Data Yet"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aún No Hay Datos"
           }
         }
       }
@@ -1057,6 +1329,22 @@
         }
       }
     },
+    "Open the Activities tab to grade each group.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open the Activities tab to grade each group."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abre la pestaña Actividades para calificar cada grupo."
+          }
+        }
+      }
+    },
     "Participation": {
       "localizations": {
         "en": {
@@ -1089,18 +1377,18 @@
         }
       }
     },
-    "Powered by Magnificent": {
+    "Powered by Aguachile Labs": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Powered by Magnificent"
+            "value": "Powered by Aguachile Labs"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Desarrollado por Magnificent"
+            "value": "Desarrollado por Aguachile Labs"
           }
         }
       }
@@ -1169,6 +1457,22 @@
         }
       }
     },
+    "Role %lld": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Role %lld"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rol %lld"
+          }
+        }
+      }
+    },
     "Roster": {
       "localizations": {
         "en": {
@@ -1229,6 +1533,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Guarda una actividad y califica un grupo para ver estadísticas aquí."
+          }
+        }
+      }
+    },
+    "Saves the groups you generated in the Groups tab under this name.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saves the groups you generated in the Groups tab under this name."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guarda los grupos que generaste en la pestaña Grupos bajo este nombre."
           }
         }
       }
@@ -1357,6 +1677,54 @@
           "stringUnit": {
             "state": "translated",
             "value": "Versión %@"
+          }
+        }
+      }
+    },
+    "previously held %lld times": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "previously held %lld times"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ocupado antes %lld veces"
+          }
+        }
+      }
+    },
+    "previously held 1 time": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "previously held 1 time"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ocupado antes 1 vez"
+          }
+        }
+      }
+    },
+    "—": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "—"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "—"
           }
         }
       }
