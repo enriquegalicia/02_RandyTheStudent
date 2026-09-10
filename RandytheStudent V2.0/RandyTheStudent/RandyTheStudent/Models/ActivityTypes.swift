@@ -6,11 +6,11 @@
 import Foundation
 
 struct ActivityGrade: Identifiable, Hashable {
-    /// Grades are on a 0...10 scale, so 0 is a legitimate grade — it can't
-    /// double as "not graded yet" the way it used to. A negative sentinel
-    /// (outside the valid range) marks a group that hasn't been graded.
+    /// 0 is a legitimate grade on any configured scale (see
+    /// GradeScaleSettings) — it can't double as "not graded yet" the way it
+    /// used to. A negative sentinel (outside every valid range, whatever the
+    /// scale) marks a group that hasn't been graded.
     static let ungraded: Double = -1
-    static let validRange: ClosedRange<Double> = 0...10
 
     var groupNumber: Int
     var activityName: String

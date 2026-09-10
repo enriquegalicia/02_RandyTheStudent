@@ -15,10 +15,11 @@ struct RootView: View {
     @State private var library = ClassLibraryStore()
     @State private var selectedClass: ClassFile?
     @State private var showingCredits = false
+    @State private var showingSettings = false
 
     var body: some View {
         NavigationSplitView {
-            ClassLibraryView(library: library, selectedClass: $selectedClass, showingCredits: $showingCredits)
+            ClassLibraryView(library: library, selectedClass: $selectedClass, showingCredits: $showingCredits, showingSettings: $showingSettings)
         } detail: {
             if let selectedClass {
                 GradebookView(classFile: selectedClass)
@@ -35,6 +36,9 @@ struct RootView: View {
         .navigationSplitViewStyle(.balanced)
         .sheet(isPresented: $showingCredits) {
             CreditsView()
+        }
+        .sheet(isPresented: $showingSettings) {
+            SettingsView()
         }
     }
 }

@@ -13,6 +13,12 @@
 //  a time through the "Review a graded group" menu, to look at or correct
 //  a grade after the fact.
 //
+//  Saving a grade is a single tap with no confirmation dialog or "Saved"
+//  message — grading a whole roster of groups one at a time is exactly
+//  the kind of repeated action where a dialog per group is friction, not
+//  safety. Errors still surface (via ClassStore.errorMessage, shown by the
+//  parent GradebookView) if a save genuinely fails.
+//
 
 import SwiftUI
 import AguaDesign
@@ -20,16 +26,14 @@ import AguaDesign
 struct ActivitiesView: View {
     var store: ClassStore
 
-    private struct PendingSave: Identifiable {
-        var grade: ActivityGrade
-        var value: Double
-        var id: String { grade.id }
-    }
+    // Own reactive copy of the setting (rather than reading
+    // GradeScaleSettings.currentMax directly) so this view actually
+    // refreshes if the grading scale changes while it's on screen — see
+    // GradeScaleSettings' note on why ClassStore doesn't need the same.
+    @AppStorage(GradeScaleSettings.userDefaultsKey) private var gradeScaleMax: Double = GradeScaleSettings.defaultMax
 
     @State private var gradeDrafts: [String: String] = [:]
     @State private var revealedGradedIds: Set<String> = []
-    @State private var pendingSave: PendingSave?
-    @State private var showingSavedConfirmation = false
     @State private var activityPendingDeletion: String?
     @State private var showingAddActivity = false
     @State private var showingNoGroupsYet = false
@@ -75,7 +79,7 @@ struct ActivitiesView: View {
                             if !hiddenGraded.isEmpty {
                                 Menu {
                                     ForEach(hiddenGraded) { grade in
-                                        Button("\(grade.groupLabel) — \(formatted(grade.grade))/10") {
+                                        Button("\(grade.groupLabel) — \(formatted(grade.grade))") {
                                             revealedGradedIds.insert(grade.id)
                                         }
                                     }
@@ -130,21 +134,6 @@ struct ActivitiesView: View {
         } message: {
             Text("Generate groups in the Groups tab first, then come back here to save them as an activity.")
         }
-        .alert("Grade Saved", isPresented: $showingSavedConfirmation) {
-            Button("OK") {}
-        }
-        .confirmationDialog(
-            "Save a grade of \(pendingSave.map { formatted($0.value) } ?? "")/10 for \(pendingSave?.grade.groupLabel ?? "")?",
-            isPresented: Binding(
-                get: { pendingSave != nil },
-                set: { isPresented in if !isPresented { pendingSave = nil } }
-            ),
-            titleVisibility: .visible,
-            presenting: pendingSave
-        ) { pending in
-            Button("Save Grade") { commitSave(pending) }
-            Button("Cancel", role: .cancel) { pendingSave = nil }
-        }
         .confirmationDialog(
             "Delete this activity for every group?",
             isPresented: Binding(
@@ -170,7 +159,8 @@ struct ActivitiesView: View {
         )
         let trimmedDraft = draftBinding.wrappedValue.trimmingCharacters(in: .whitespaces)
         let parsedValue = trimmedDraft.isEmpty ? nil : Double(trimmedDraft)
-        let isValid = parsedValue.map(ActivityGrade.validRange.contains) ?? false
+        let validRange = GradeScaleSettings.validRange(max: gradeScaleMax)
+        let isValid = parsedValue.map(validRange.contains) ?? false
 
         HStack {
             VStack(alignment: .leading, spacing: 2) {
@@ -183,14 +173,16 @@ struct ActivitiesView: View {
                 }
             }
             Spacer()
-            TextField("0–10", text: draftBinding)
+            TextField(GradeScaleSettings.placeholderText(max: gradeScaleMax), text: draftBinding)
                 .keyboardType(.decimalPad)
                 .multilineTextAlignment(.trailing)
                 .frame(width: 70)
                 .textFieldStyle(.roundedBorder)
             Button("Save") {
                 guard let value = parsedValue, isValid else { return }
-                pendingSave = PendingSave(grade: grade, value: value)
+                if store.gradeGroup(groupNumber: grade.groupNumber, activityName: grade.activityName, grade: value) {
+                    gradeDrafts[grade.id] = nil
+                }
             }
             .buttonStyle(.bordered)
             .disabled(!isValid)
@@ -206,16 +198,6 @@ struct ActivitiesView: View {
                 .foregroundStyle(AguaColor.textMuted)
             }
         }
-    }
-
-    private func commitSave(_ pending: PendingSave) {
-        guard store.gradeGroup(groupNumber: pending.grade.groupNumber, activityName: pending.grade.activityName, grade: pending.value) else {
-            pendingSave = nil
-            return
-        }
-        gradeDrafts[pending.grade.id] = nil
-        pendingSave = nil
-        showingSavedConfirmation = true
     }
 
     private func formatted(_ value: Double) -> String {

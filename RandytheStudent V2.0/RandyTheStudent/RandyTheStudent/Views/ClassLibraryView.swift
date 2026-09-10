@@ -12,6 +12,7 @@ struct ClassLibraryView: View {
     var library: ClassLibraryStore
     @Binding var selectedClass: ClassFile?
     @Binding var showingCredits: Bool
+    @Binding var showingSettings: Bool
 
     @State private var newClassName = ""
     @State private var renamingClass: ClassFile?
@@ -68,6 +69,13 @@ struct ClassLibraryView: View {
         .aguaBackground()
         .navigationTitle("RandoSquad")
         .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button {
+                    showingSettings = true
+                } label: {
+                    Label("Settings", systemImage: "gearshape")
+                }
+            }
             ToolbarItem(placement: .primaryAction) {
                 Button {
                     showingCredits = true

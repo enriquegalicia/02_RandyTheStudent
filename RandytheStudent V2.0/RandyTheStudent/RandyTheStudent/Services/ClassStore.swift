@@ -5,13 +5,16 @@
 //  Model layer for a single class — roster, random groups, activity
 //  grading, participation, and chart data. Replaces Classes.swift.
 //
-//  The group-balancing algorithm (`generateGroups`) is a faithful,
-//  close-to-literal port of the original "randear" (see the old
-//  Classes.swift's own header comment calling it "the highest-risk part
-//  of this whole migration"). Two pre-existing quirks in that original
-//  algorithm are intentionally preserved rather than "fixed" here — see
-//  the inline notes at each site — because silently changing which
-//  students land in which group is worse than keeping a known quirk.
+//  The group-balancing algorithm (`generateGroups`) is a close-to-literal
+//  port of the original "randear" (see the old Classes.swift's own header
+//  comment calling it "the highest-risk part of this whole migration").
+//  Two porting-introduced quirks that silently dropped students when the
+//  roster didn't divide evenly by the group count have since been fixed
+//  (both branches now place every student — see the inline notes at each
+//  site). One cosmetic tie-breaking quirk in the bucket-ordering step
+//  (last bucket wins on a tie, not first) is still intentionally preserved,
+//  since it doesn't drop anyone and "fixing" it would just reshuffle which
+//  group gets which label for no functional reason.
 //
 
 import Foundation
@@ -306,13 +309,21 @@ final class ClassStore {
                     if Double(remaining.count) >= groupCountF {
                         placeFront()
                     }
-                    // NOTE: the original also has a "leftover distribution" step for
-                    // students still left in `remaining` at this point, meant to spread
-                    // them across the groups closest to the average size. Its threshold
-                    // computation is `Int(division)*(g+1) - Int(division)*(g+1)`, which is
-                    // always zero — so in the shipped app that step never actually places
-                    // anyone, and any true remainder is silently left ungrouped. Preserved
-                    // by simply not implementing that dead step, matching live behavior.
+                    // The original had a "leftover distribution" step here for whatever
+                    // was still left in `remaining` at this point, meant to spread it
+                    // across the groups closest to the average size — but its threshold
+                    // computation (`Int(division)*(g+1) - Int(division)*(g+1)`) is always
+                    // zero, so it never actually placed anyone; any true remainder (1 to
+                    // requestedCount-1 students, whenever the roster doesn't divide evenly)
+                    // was silently dropped. Reported after shipping as "it can have 5
+                    // students and only show 3 or so." Fixed here by actually placing
+                    // whatever's left, one per bucket round-robin, instead of leaving it
+                    // dead code.
+                    var bucketIndex = 0
+                    while !remaining.isEmpty {
+                        buckets[bucketIndex % requestedCount].append(remaining.removeFirst())
+                        bucketIndex += 1
+                    }
 
                     // Order buckets into G1...G{n}, minimizing each bucket's combined
                     // history with that group label. Ported verbatim, including the
@@ -363,27 +374,31 @@ final class ClassStore {
                 }
             } else if !students.isEmpty {
                 // No grading history yet: distribute a plain shuffle into equal-ish
-                // contiguous chunks. Same floor-based chunk boundaries as the original,
-                // including the fact that they can drop the last student or two when the
-                // roster doesn't divide evenly by the group count (e.g. 10 students into
-                // 3 groups drops 1) — a pre-existing quirk, kept as-is rather than
-                // "corrected" into different group membership than before.
+                // contiguous chunks. This used to compute chunk boundaries with
+                // floating-point division (`Int(averageSize * Double(g))`), which
+                // silently dropped a trailing student whenever floating-point
+                // rounding made e.g. 5.0/3.0*3 come out a hair under 5.0 instead of
+                // exactly 5.0 — "5 students, only 3 or so show up," reported after
+                // shipping. Integer division + remainder guarantees every student
+                // lands in exactly one group, with the remainder spread one-per-group
+                // across the first few groups.
                 let shuffledStudents = shuffledOnce(shuffledOnce(students))
-                let total = Double(shuffledStudents.count)
-                let groupCountF = Double(requestedCount)
-                let averageSize = total / groupCountF
+                let total = shuffledStudents.count
+                let baseSize = total / requestedCount
+                let remainder = total % requestedCount
+                var cursor = 0
                 for g in 0..<requestedCount {
-                    let start = Int(averageSize * Double(g))
-                    let end = Int(averageSize * Double(g + 1)) - 1
-                    guard start <= end else { continue }
+                    let sizeForThisGroup = baseSize + (g < remainder ? 1 : 0)
+                    guard sizeForThisGroup > 0 else { continue }
                     var roleIndex = 0
-                    for i in start...end where i < shuffledStudents.count {
+                    for i in cursor..<(cursor + sizeForThisGroup) {
                         let student = shuffledStudents[i]
                         let role = "Rol \(roleIndex + 1)"
                         newSlots.append((group: g + 1, role: role))
                         newPayload.append(MemberPayload(studentId: student.studentId, studentName: student.fullName, priorRoleCount: roleHistory[student.studentId]?[role] ?? 0))
                         roleIndex += 1
                     }
+                    cursor += sizeForThisGroup
                 }
             }
 
@@ -493,8 +508,9 @@ final class ClassStore {
 
     @discardableResult
     func gradeGroup(groupNumber: Int, activityName: String, grade: Double) -> Bool {
-        guard ActivityGrade.validRange.contains(grade) else {
-            errorMessage = String(localized: "Grades must be between 0 and 10.")
+        guard GradeScaleSettings.validRange.contains(grade) else {
+            let bound = Int(GradeScaleSettings.validRange.upperBound)
+            errorMessage = String(localized: "Grades must be between 0 and \(bound).")
             return false
         }
         do {
