@@ -217,7 +217,7 @@ final class ClassStore {
 
     private func fetchRawGroupRows() throws -> [RawGroupRow] {
         let rows = try db.query("SELECT GRUPONO, ALUMNOSID, ACTIVIDAD, POSICION, CALIFICACION FROM GRUPOS", columnCount: 5)
-        return rows.map { RawGroupRow(group: $0[0], studentId: $0[1], activity: $0[2], role: $0[3], grade: Double($0[4]) ?? 0) }
+        return rows.map { RawGroupRow(group: $0[0], studentId: $0[1], activity: $0[2], role: $0[3], grade: Double($0[4]) ?? ActivityGrade.ungraded) }
     }
 
     private func studentName(for studentId: String) -> String {
@@ -230,11 +230,19 @@ final class ClassStore {
         do {
             let historyRows = try fetchRawGroupRows()
 
+            // Ungraded rows (grade < 0, see ActivityGrade.ungraded) represent "we
+            // don't know this student's contribution yet," not a real 0 — they
+            // must be excluded from the ranking sum, or every not-yet-graded
+            // activity would silently dock every student in it.
+            let gradedRows = historyRows.filter { $0.grade >= 0 }
             var studentTotals: [String: Double] = [:]
-            for row in historyRows { studentTotals[row.studentId, default: 0] += row.grade }
-            let distinctGrades = Set(historyRows.map(\.grade))
+            for row in gradedRows { studentTotals[row.studentId, default: 0] += row.grade }
+            let distinctGrades = Set(gradedRows.map(\.grade))
             let hasAntecedents = !studentTotals.isEmpty && distinctGrades.count > 1
 
+            // Group/role history tracks *who sat where*, independent of whether
+            // that sitting was ever graded — so it's built from every row, graded
+            // or not, to keep avoiding repeat seatings.
             var groupHistory: [String: [String: Int]] = [:]
             var roleHistory: [String: [String: Int]] = [:]
             for row in historyRows {
@@ -247,7 +255,14 @@ final class ClassStore {
             var newPayload: [MemberPayload] = []
 
             if hasAntecedents {
-                let rankedIds = studentTotals.keys.sorted { studentTotals[$0]! > studentTotals[$1]! }
+                var rankedIds = studentTotals.keys.sorted { studentTotals[$0]! > studentTotals[$1]! }
+                // Students with no grupos history yet — e.g. just added to the
+                // roster after earlier activities were already graded — have no
+                // entry in studentTotals and would otherwise be silently dropped
+                // from every future group generation. Append them (stable order)
+                // so a newly added student still gets placed.
+                let newStudentIds = students.map(\.studentId).filter { !studentTotals.keys.contains($0) }.sorted()
+                rankedIds.append(contentsOf: newStudentIds)
 
                 if requestedCount == 1 {
                     // The original algorithm builds an equivalent single-group bucket via
@@ -449,7 +464,7 @@ final class ClassStore {
                 let slot = slots[index]
                 try db.run(
                     "INSERT INTO GRUPOS(GRUPONO, ALUMNOSID, ACTIVIDAD, POSICION, CALIFICACION) VALUES (?, ?, ?, ?, ?)",
-                    params: [.text("G\(slot.group)"), .text(member.studentId), .text(name), .text(slot.role), .double(0)]
+                    params: [.text("G\(slot.group)"), .text(member.studentId), .text(name), .text(slot.role), .double(ActivityGrade.ungraded)]
                 )
                 inserted += 1
             }
@@ -478,6 +493,10 @@ final class ClassStore {
 
     @discardableResult
     func gradeGroup(groupNumber: Int, activityName: String, grade: Double) -> Bool {
+        guard ActivityGrade.validRange.contains(grade) else {
+            errorMessage = String(localized: "Grades must be between 0 and 10.")
+            return false
+        }
         do {
             try db.run(
                 "UPDATE GRUPOS SET CALIFICACION = ? WHERE GRUPONO = ? AND ACTIVIDAD = ?",
@@ -506,15 +525,19 @@ final class ClassStore {
 
     func chartData() -> (activities: [ActivityBreakdown], students: [StudentBreakdown]) {
         guard let rows = try? fetchRawGroupRows() else { return ([], []) }
+        // Ungraded rows (grade < 0) would otherwise drag averages/totals down
+        // and show a bogus negative bar — exclude them from every chart.
+        let gradedRows = rows.filter { $0.grade >= 0 }
 
         // One bar per (activity, group) — not per student — since every student
         // in a group shares that group's grade; segmenting by student just
         // repeated the same value and made totals meaningless. The average is
-        // across the activity's groups, so it's easy to compare activities.
-        let activityNames = Set(activityGrades.map(\.activityName)).sorted()
+        // across the activity's graded groups, so it's easy to compare activities.
+        // Activities with no graded groups yet don't get a bar at all.
+        let activityNames = Set(activityGrades.filter(\.isGraded).map(\.activityName)).sorted()
         let activityBreakdowns = activityNames.map { activity -> ActivityBreakdown in
             let matching = activityGrades
-                .filter { $0.activityName == activity }
+                .filter { $0.activityName == activity && $0.isGraded }
                 .sorted { $0.groupNumber < $1.groupNumber }
             let segments = matching.map { GradeSegment(label: $0.groupLabel, value: $0.grade) }
             let average = matching.isEmpty ? 0 : matching.map(\.grade).reduce(0, +) / Double(matching.count)
@@ -522,11 +545,11 @@ final class ClassStore {
         }
 
         var totals: [String: Double] = [:]
-        for row in rows { totals[row.studentId, default: 0] += row.grade }
+        for row in gradedRows { totals[row.studentId, default: 0] += row.grade }
         let orderedIds = totals.keys.sorted { totals[$0]! > totals[$1]! }
         let studentBreakdowns = orderedIds.map { studentId -> StudentBreakdown in
             var byRole: [String: Double] = [:]
-            for row in rows where row.studentId == studentId {
+            for row in gradedRows where row.studentId == studentId {
                 byRole[row.role, default: 0] += row.grade
             }
             let segments = byRole.keys.sorted().map { GradeSegment(label: Self.displayRole($0), value: byRole[$0]!) }

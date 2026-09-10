@@ -6,6 +6,12 @@
 import Foundation
 
 struct ActivityGrade: Identifiable, Hashable {
+    /// Grades are on a 0...10 scale, so 0 is a legitimate grade — it can't
+    /// double as "not graded yet" the way it used to. A negative sentinel
+    /// (outside the valid range) marks a group that hasn't been graded.
+    static let ungraded: Double = -1
+    static let validRange: ClosedRange<Double> = 0...10
+
     var groupNumber: Int
     var activityName: String
     var grade: Double
@@ -15,6 +21,8 @@ struct ActivityGrade: Identifiable, Hashable {
     // flows into `Text(_ content: String)` (the verbatim overload) at the
     // call site, which never does table lookup on its own.
     var groupLabel: String { String(localized: "Group \(groupNumber)") }
+
+    var isGraded: Bool { grade >= 0 }
 }
 
 /// One colored segment of a stacked bar in the stats charts.

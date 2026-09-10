@@ -40,10 +40,21 @@ struct GroupsView: View {
                     AguaGroupHeader(String(localized: "Number of Groups"))
                     Picker("Group count", selection: $groupCount) {
                         ForEach(groupCountRange, id: \.self) { count in
-                            Text("\(count)").tag(count)
+                            // A segmented Picker disables the individual segment
+                            // whose label carries .disabled(), not just the whole
+                            // control — so you can't select more groups than there
+                            // are students to put in them.
+                            Text("\(count)")
+                                .tag(count)
+                                .disabled(count > store.students.count)
                         }
                     }
                     .pickerStyle(.segmented)
+                    .onChange(of: store.students.count) { _, newCount in
+                        if groupCount > newCount {
+                            groupCount = max(groupCountRange.lowerBound, newCount)
+                        }
+                    }
 
                     Button {
                         store.generateGroups(count: groupCount)
@@ -53,7 +64,7 @@ struct GroupsView: View {
                     }
                     .buttonStyle(.borderedProminent)
                     .tint(AguaColor.Accent.blue)
-                    .disabled(store.students.isEmpty)
+                    .disabled(store.students.isEmpty || groupCount > store.students.count)
 
                     if !store.groups.isEmpty {
                         HStack(spacing: AguaSpacing.s) {

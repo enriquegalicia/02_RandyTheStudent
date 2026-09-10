@@ -6,6 +6,13 @@
 //  activity entirely. Replaces the "Grupo" control group from the old
 //  Classes.swift.
 //
+//  Ungraded groups (ActivityGrade.isGraded == false) are the default,
+//  editable list — the point being to grade what hasn't been graded yet.
+//  Already-graded groups are hidden by default (so a full section doesn't
+//  fill up with things there's nothing left to do to) and surfaced one at
+//  a time through the "Review a graded group" menu, to look at or correct
+//  a grade after the fact.
+//
 
 import SwiftUI
 import AguaDesign
@@ -13,7 +20,16 @@ import AguaDesign
 struct ActivitiesView: View {
     var store: ClassStore
 
+    private struct PendingSave: Identifiable {
+        var grade: ActivityGrade
+        var value: Double
+        var id: String { grade.id }
+    }
+
     @State private var gradeDrafts: [String: String] = [:]
+    @State private var revealedGradedIds: Set<String> = []
+    @State private var pendingSave: PendingSave?
+    @State private var showingSavedConfirmation = false
     @State private var activityPendingDeletion: String?
     @State private var showingAddActivity = false
     @State private var showingNoGroupsYet = false
@@ -37,26 +53,34 @@ struct ActivitiesView: View {
                     .listRowBackground(Color.clear)
                 } else {
                     ForEach(groupedByActivity, id: \.name) { activity in
+                        let ungraded = activity.grades.filter { !$0.isGraded }
+                        let graded = activity.grades.filter(\.isGraded)
+                        let hiddenGraded = graded.filter { !revealedGradedIds.contains($0.id) }
+
                         Section {
-                            ForEach(activity.grades) { grade in
-                                HStack {
-                                    Text(grade.groupLabel)
-                                        .foregroundStyle(AguaColor.textPrimary)
-                                    Spacer()
-                                    TextField(
-                                        "Grade",
-                                        text: Binding(
-                                            get: { gradeDrafts[grade.id] ?? formatted(grade.grade) },
-                                            set: { gradeDrafts[grade.id] = $0 }
-                                        )
-                                    )
-                                    .keyboardType(.decimalPad)
-                                    .multilineTextAlignment(.trailing)
-                                    .frame(width: 80)
-                                    .textFieldStyle(.roundedBorder)
-                                    .onSubmit { save(grade) }
-                                    Button("Save") { save(grade) }
-                                        .buttonStyle(.bordered)
+                            if ungraded.isEmpty && graded.allSatisfy({ !revealedGradedIds.contains($0.id) }) {
+                                Text("Every group is graded.")
+                                    .font(.footnote)
+                                    .foregroundStyle(AguaColor.textMuted)
+                            }
+
+                            ForEach(ungraded) { grade in
+                                gradeRow(grade)
+                            }
+
+                            ForEach(graded.filter { revealedGradedIds.contains($0.id) }) { grade in
+                                gradeRow(grade, isReviewing: true)
+                            }
+
+                            if !hiddenGraded.isEmpty {
+                                Menu {
+                                    ForEach(hiddenGraded) { grade in
+                                        Button("\(grade.groupLabel) — \(formatted(grade.grade))/10") {
+                                            revealedGradedIds.insert(grade.id)
+                                        }
+                                    }
+                                } label: {
+                                    Label("Review a Graded Group", systemImage: "checklist")
                                 }
                             }
                         } header: {
@@ -106,6 +130,21 @@ struct ActivitiesView: View {
         } message: {
             Text("Generate groups in the Groups tab first, then come back here to save them as an activity.")
         }
+        .alert("Grade Saved", isPresented: $showingSavedConfirmation) {
+            Button("OK") {}
+        }
+        .confirmationDialog(
+            "Save a grade of \(pendingSave.map { formatted($0.value) } ?? "")/10 for \(pendingSave?.grade.groupLabel ?? "")?",
+            isPresented: Binding(
+                get: { pendingSave != nil },
+                set: { isPresented in if !isPresented { pendingSave = nil } }
+            ),
+            titleVisibility: .visible,
+            presenting: pendingSave
+        ) { pending in
+            Button("Save Grade") { commitSave(pending) }
+            Button("Cancel", role: .cancel) { pendingSave = nil }
+        }
         .confirmationDialog(
             "Delete this activity for every group?",
             isPresented: Binding(
@@ -123,11 +162,60 @@ struct ActivitiesView: View {
         }
     }
 
-    private func save(_ grade: ActivityGrade) {
-        let text = gradeDrafts[grade.id] ?? formatted(grade.grade)
-        guard let value = Double(text) else { return }
-        store.gradeGroup(groupNumber: grade.groupNumber, activityName: grade.activityName, grade: value)
-        gradeDrafts[grade.id] = nil
+    @ViewBuilder
+    private func gradeRow(_ grade: ActivityGrade, isReviewing: Bool = false) -> some View {
+        let draftBinding = Binding(
+            get: { gradeDrafts[grade.id] ?? (grade.isGraded ? formatted(grade.grade) : "") },
+            set: { gradeDrafts[grade.id] = $0 }
+        )
+        let trimmedDraft = draftBinding.wrappedValue.trimmingCharacters(in: .whitespaces)
+        let parsedValue = trimmedDraft.isEmpty ? nil : Double(trimmedDraft)
+        let isValid = parsedValue.map(ActivityGrade.validRange.contains) ?? false
+
+        HStack {
+            VStack(alignment: .leading, spacing: 2) {
+                Text(grade.groupLabel)
+                    .foregroundStyle(AguaColor.textPrimary)
+                if isReviewing {
+                    Text("Already graded")
+                        .font(.caption2)
+                        .foregroundStyle(AguaColor.textMuted)
+                }
+            }
+            Spacer()
+            TextField("0–10", text: draftBinding)
+                .keyboardType(.decimalPad)
+                .multilineTextAlignment(.trailing)
+                .frame(width: 70)
+                .textFieldStyle(.roundedBorder)
+            Button("Save") {
+                guard let value = parsedValue, isValid else { return }
+                pendingSave = PendingSave(grade: grade, value: value)
+            }
+            .buttonStyle(.bordered)
+            .disabled(!isValid)
+
+            if isReviewing {
+                Button {
+                    revealedGradedIds.remove(grade.id)
+                    gradeDrafts[grade.id] = nil
+                } label: {
+                    Image(systemName: "chevron.up.circle")
+                }
+                .buttonStyle(.plain)
+                .foregroundStyle(AguaColor.textMuted)
+            }
+        }
+    }
+
+    private func commitSave(_ pending: PendingSave) {
+        guard store.gradeGroup(groupNumber: pending.grade.groupNumber, activityName: pending.grade.activityName, grade: pending.value) else {
+            pendingSave = nil
+            return
+        }
+        gradeDrafts[pending.grade.id] = nil
+        pendingSave = nil
+        showingSavedConfirmation = true
     }
 
     private func formatted(_ value: Double) -> String {
