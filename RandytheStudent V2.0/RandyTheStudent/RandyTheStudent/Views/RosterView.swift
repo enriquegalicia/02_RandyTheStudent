@@ -5,12 +5,19 @@
 //  Add / edit / delete students. Replaces the "Edicion" control group
 //  from the old Classes.swift.
 //
+//  Also handles roster CSV import/export — so a roster can be bulk-added
+//  from a spreadsheet, shared with another professor, or edited outside
+//  the app and brought back in — plus a downloadable template so it's
+//  obvious what columns are expected.
+//
 
 import SwiftUI
 import AguaDesign
+import UniformTypeIdentifiers
 
 struct RosterView: View {
     var store: ClassStore
+    var className: String
 
     @State private var studentId = ""
     @State private var firstName = ""
@@ -19,6 +26,11 @@ struct RosterView: View {
     @State private var editingStudent: Student?
     @State private var studentPendingDeletion: Student?
     @FocusState private var focusedField: Field?
+
+    @State private var isShowingFileImporter = false
+    @State private var isShowingShareSheet = false
+    @State private var shareURL: URL?
+    @State private var importResultMessage: String?
 
     private enum Field {
         case studentId, firstName, lastName, email
@@ -117,6 +129,30 @@ struct RosterView: View {
             }
             .scrollContentBackground(.hidden)
             .aguaBackground()
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Menu {
+                        Button {
+                            isShowingFileImporter = true
+                        } label: {
+                            Label("Import CSV", systemImage: "square.and.arrow.down")
+                        }
+                        Button {
+                            shareCSV(store.exportRosterCSVText(), named: "\(className)-Roster.csv")
+                        } label: {
+                            Label("Export Roster (CSV)", systemImage: "square.and.arrow.up")
+                        }
+                        .disabled(store.students.isEmpty)
+                        Button {
+                            shareCSV(RosterCSV.templateText, named: "RandoSquad-Roster-Template.csv")
+                        } label: {
+                            Label("Get CSV Template", systemImage: "doc.text")
+                        }
+                    } label: {
+                        Label("Roster File", systemImage: "ellipsis.circle")
+                    }
+                }
+            }
         }
         .confirmationDialog(
             "Delete this student?",
@@ -133,6 +169,51 @@ struct RosterView: View {
                 studentPendingDeletion = nil
             }
             Button("Cancel", role: .cancel) { studentPendingDeletion = nil }
+        }
+        .fileImporter(isPresented: $isShowingFileImporter, allowedContentTypes: [.commaSeparatedText, .plainText]) { result in
+            handleImport(result)
+        }
+        .sheet(isPresented: $isShowingShareSheet) {
+            if let shareURL {
+                ActivityView(activityItems: [shareURL])
+            }
+        }
+        .alert(
+            "Import Complete",
+            isPresented: Binding(
+                get: { importResultMessage != nil },
+                set: { isPresented in if !isPresented { importResultMessage = nil } }
+            )
+        ) {
+            Button("OK") { importResultMessage = nil }
+        } message: {
+            Text(importResultMessage ?? "")
+        }
+    }
+
+    private func shareCSV(_ text: String, named filename: String) {
+        guard let url = CSV.writeTempFile(text, named: filename) else { return }
+        shareURL = url
+        isShowingShareSheet = true
+    }
+
+    private func handleImport(_ result: Result<URL, Error>) {
+        switch result {
+        case .failure:
+            importResultMessage = String(localized: "Couldn't read that file. Make sure it's a CSV or plain text file.")
+        case .success(let url):
+            let didAccess = url.startAccessingSecurityScopedResource()
+            defer { if didAccess { url.stopAccessingSecurityScopedResource() } }
+            guard let text = CSV.readText(at: url) else {
+                importResultMessage = String(localized: "Couldn't read that file. Make sure it's a CSV or plain text file.")
+                return
+            }
+            let summary = store.importStudentsCSV(text)
+            if summary.imported == 0, summary.duplicates == 0, summary.invalid == 0 {
+                importResultMessage = String(localized: "No importable rows were found in that file.")
+            } else {
+                importResultMessage = String(localized: "Added \(summary.imported) · Skipped \(summary.duplicates) already in the roster · Skipped \(summary.invalid) with missing or invalid data.")
+            }
         }
     }
 

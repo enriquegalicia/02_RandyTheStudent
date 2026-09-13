@@ -17,12 +17,18 @@
         }
       }
     },
-    "%@ — %@/10" : {
+    "%@ — %@" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$@ — %2$@/10"
+            "state" : "translated",
+            "value" : "%1$@ — %2$@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ — %2$@"
           }
         }
       }
@@ -106,9 +112,6 @@
           }
         }
       }
-    },
-    "0–10" : {
-
     },
     "1 participation" : {
       "localizations" : {
@@ -366,8 +369,37 @@
         }
       }
     },
+    "Added %lld · Skipped %lld already in the roster · Skipped %lld with missing or invalid data." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Added %1$lld · Skipped %2$lld already in the roster · Skipped %3$lld with missing or invalid data."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se agregaron %1$lld · Se omitieron %2$lld ya en la lista · Se omitieron %3$lld con datos faltantes o inválidos."
+          }
+        }
+      }
+    },
     "Already graded" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Already graded"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ya calificado"
+          }
+        }
+      }
     },
     "Average" : {
       "localizations" : {
@@ -577,6 +609,22 @@
         }
       }
     },
+    "Couldn't read that file. Make sure it's a CSV or plain text file." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't read that file. Make sure it's a CSV or plain text file."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo leer ese archivo. Asegúrate de que sea un archivo CSV o de texto plano."
+          }
+        }
+      }
+    },
     "Couldn't record participation. Try again." : {
       "localizations" : {
         "en" : {
@@ -701,6 +749,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Créditos"
+          }
+        }
+      }
+    },
+    "Custom Maximum" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Custom Maximum"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Máximo Personalizado"
           }
         }
       }
@@ -898,7 +962,52 @@
       }
     },
     "Every group is graded." : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Every group is graded."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todos los grupos están calificados."
+          }
+        }
+      }
+    },
+    "Export Groups (CSV)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export Groups (CSV)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exportar Grupos (CSV)"
+          }
+        }
+      }
+    },
+    "Export Roster (CSV)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export Roster (CSV)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exportar Lista (CSV)"
+          }
+        }
+      }
     },
     "Fill in every field before saving." : {
       "localizations" : {
@@ -996,6 +1105,22 @@
         }
       }
     },
+    "Get CSV Template" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Get CSV Template"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obtener Plantilla CSV"
+          }
+        }
+      }
+    },
     "Grade" : {
       "localizations" : {
         "en" : {
@@ -1012,8 +1137,21 @@
         }
       }
     },
-    "Grade Saved" : {
-
+    "Grades are entered out of %lld. You can still enter more than that for bonus points — up to %lld." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grades are entered out of %1$lld. You can still enter more than that for bonus points — up to %2$lld."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las calificaciones se ingresan sobre %1$lld. Aún puedes ingresar más para puntos extra — hasta %2$lld."
+          }
+        }
+      }
     },
     "Grades by Activity" : {
       "localizations" : {
@@ -1047,8 +1185,37 @@
         }
       }
     },
-    "Grades must be between 0 and 10." : {
-
+    "Grades must be between 0 and %lld." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grades must be between 0 and %lld."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las calificaciones deben estar entre 0 y %lld."
+          }
+        }
+      }
+    },
+    "Grading Scale" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grading Scale"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escala de Calificación"
+          }
+        }
+      }
     },
     "Group" : {
       "localizations" : {
@@ -1114,6 +1281,38 @@
         }
       }
     },
+    "Import CSV" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import CSV"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importar CSV"
+          }
+        }
+      }
+    },
+    "Import Complete" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import Complete"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importación Completa"
+          }
+        }
+      }
+    },
     "Last Name" : {
       "localizations" : {
         "en" : {
@@ -1141,7 +1340,23 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Marcar como Participó"
+            "value" : "Marcar Participación"
+          }
+        }
+      }
+    },
+    "Max" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Max"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Máx"
           }
         }
       }
@@ -1306,6 +1521,22 @@
         }
       }
     },
+    "No importable rows were found in that file." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No importable rows were found in that file."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se encontraron filas importables en ese archivo."
+          }
+        }
+      }
+    },
     "No student with ID \"%@\" was found." : {
       "localizations" : {
         "en" : {
@@ -1445,7 +1676,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ocupado antes %lld veces"
+            "value" : "ya ocupado %lld veces"
           }
         }
       }
@@ -1461,7 +1692,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ocupado antes 1 vez"
+            "value" : "ya ocupado 1 vez"
           }
         }
       }
@@ -1531,7 +1762,20 @@
       }
     },
     "Review a Graded Group" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Review a Graded Group"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Revisar un Grupo Calificado"
+          }
+        }
+      }
     },
     "Role %lld" : {
       "localizations" : {
@@ -1581,6 +1825,22 @@
         }
       }
     },
+    "Roster File" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Roster File"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Archivo de Lista"
+          }
+        }
+      }
+    },
     "Save" : {
       "localizations" : {
         "en" : {
@@ -1593,16 +1853,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Guardar"
-          }
-        }
-      }
-    },
-    "Save a grade of %@/10 for %@?" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Save a grade of %1$@/10 for %2$@?"
           }
         }
       }
@@ -1622,9 +1872,6 @@
           }
         }
       }
-    },
-    "Save Grade" : {
-
     },
     "Saves the groups you generated in the Groups tab under this name." : {
       "localizations" : {
@@ -1654,6 +1901,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Selecciona una Clase"
+          }
+        }
+      }
+    },
+    "Settings" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajustes"
           }
         }
       }

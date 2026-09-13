@@ -22,10 +22,10 @@ struct GradebookView: View {
 
     var body: some View {
         TabView {
-            RosterView(store: store)
+            RosterView(store: store, className: classFile.name)
                 .tabItem { Label("Roster", systemImage: "person.3") }
 
-            GroupsView(store: store)
+            GroupsView(store: store, className: classFile.name)
                 .tabItem { Label("Groups", systemImage: "person.2.badge.gearshape") }
 
             ActivitiesView(store: store)

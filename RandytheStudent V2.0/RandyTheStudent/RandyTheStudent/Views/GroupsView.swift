@@ -7,16 +7,22 @@
 //  the old Classes.swift, including its tap-a-row-then-Up/Down reordering
 //  flow — modernized here as standard drag-to-reorder.
 //
+//  Also offers exporting the current group assignment as CSV — e.g. to
+//  hand a co-teaching professor exactly who's in which group.
+//
 
 import SwiftUI
 import AguaDesign
 
 struct GroupsView: View {
     var store: ClassStore
+    var className: String
 
     @State private var groupCount = 2
     @State private var activityName = ""
     @State private var showingSavedConfirmation = false
+    @State private var isShowingShareSheet = false
+    @State private var shareURL: URL?
     @FocusState private var isActivityNameFocused: Bool
 
     private let groupCountRange = 2...6
@@ -122,11 +128,28 @@ struct GroupsView: View {
                 }
             }
             .aguaBackground()
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button {
+                        guard let url = CSV.writeTempFile(store.exportGroupsCSVText(), named: "\(className)-Groups.csv") else { return }
+                        shareURL = url
+                        isShowingShareSheet = true
+                    } label: {
+                        Label("Export Groups (CSV)", systemImage: "square.and.arrow.up")
+                    }
+                    .disabled(store.groups.isEmpty)
+                }
+            }
         }
         .alert("Activity Saved", isPresented: $showingSavedConfirmation) {
             Button("OK") {}
         } message: {
             Text("Open the Activities tab to grade each group.")
+        }
+        .sheet(isPresented: $isShowingShareSheet) {
+            if let shareURL {
+                ActivityView(activityItems: [shareURL])
+            }
         }
     }
 

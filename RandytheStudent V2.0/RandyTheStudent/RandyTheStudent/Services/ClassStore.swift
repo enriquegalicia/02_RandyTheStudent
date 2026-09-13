@@ -168,6 +168,57 @@ final class ClassStore {
         }
     }
 
+    // MARK: - CSV import/export
+
+    struct CSVImportSummary {
+        var imported = 0
+        var duplicates = 0
+        var invalid = 0
+    }
+
+    func exportRosterCSVText() -> String {
+        RosterCSV.exportText(students: students)
+    }
+
+    func exportGroupsCSVText() -> String {
+        GroupsCSV.exportText(groups: groups)
+    }
+
+    /// Adds every valid, non-duplicate row from a roster CSV. Duplicates are
+    /// checked against both the existing roster AND earlier rows already
+    /// added from this same file (`students` is refreshed after each
+    /// successful insert, so a repeated StudentID within the file itself is
+    /// caught too, not just repeats of what was already there).
+    @discardableResult
+    func importStudentsCSV(_ text: String) -> CSVImportSummary {
+        var summary = CSVImportSummary()
+        for row in RosterCSV.parseRows(text) {
+            let studentId = row.studentId.trimmingCharacters(in: .whitespacesAndNewlines)
+            let firstName = row.firstName.trimmingCharacters(in: .whitespacesAndNewlines)
+            let lastName = row.lastName.trimmingCharacters(in: .whitespacesAndNewlines)
+            let email = row.email.trimmingCharacters(in: .whitespacesAndNewlines)
+            guard !studentId.isEmpty, !firstName.isEmpty, !lastName.isEmpty, !email.isEmpty else {
+                summary.invalid += 1
+                continue
+            }
+            guard !students.contains(where: { $0.studentId == studentId }) else {
+                summary.duplicates += 1
+                continue
+            }
+            if addStudent(studentId: studentId, firstName: firstName, lastName: lastName, email: email) {
+                summary.imported += 1
+            } else {
+                summary.invalid += 1
+            }
+        }
+        // addStudent sets errorMessage on a per-row failure, but that would
+        // only ever show the *last* row's problem — the CSVImportSummary
+        // this returns is what the view actually shows, so clear it rather
+        // than leave a stale, misleadingly specific message behind.
+        errorMessage = nil
+        return summary
+    }
+
     // MARK: - Participation
 
     func pickParticipant() {
