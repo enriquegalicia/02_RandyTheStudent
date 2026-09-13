@@ -142,7 +142,7 @@ enum RosterCSV {
     /// template shows exactly what's expected instead of just column names.
     static var templateText: String {
         exportText(students: [
-            Student(id: 0, studentId: "S001", firstName: "Ana", lastName: "García López", email: "ana@example.com"),
+            Student(id: 0, studentId: "S001", firstName: "Ana", lastName: "García López", email: "ana@example.com", participations: 0),
         ])
     }
 
