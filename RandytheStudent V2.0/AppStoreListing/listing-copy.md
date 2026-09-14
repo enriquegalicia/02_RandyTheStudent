@@ -50,10 +50,13 @@ RandoSquad keeps it quick, fair, and simple.
 teacher,classroom,groups,students,roster,participation,grading,education,random,group maker
 
 ## Support URL
-[ADD SUPPORT PAGE OR EMAIL LINK HERE]
+https://enriquegalicia.github.io/Aguach1leLabs-pages/randosquad/support.html
 
 ## Marketing URL (optional)
-[ADD IF AVAILABLE]
+https://enriquegalicia.github.io/Aguach1leLabs-pages/randosquad/marketing.html
+
+## Privacy Policy URL
+https://enriquegalicia.github.io/Aguach1leLabs-pages/randosquad/privacy.html
 
 ## Primary Category
 Education
