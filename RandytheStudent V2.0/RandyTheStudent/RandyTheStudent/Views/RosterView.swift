@@ -53,7 +53,7 @@ struct RosterView: View {
                             .textInputAutocapitalization(.never)
                             .focused($focusedField, equals: .email)
                     }
-                    .textFieldStyle(.roundedBorder)
+                    .textFieldStyle(.chalk)
                     .padding(.vertical, AguaSpacing.xs)
 
                     HStack(spacing: AguaSpacing.s) {
@@ -64,8 +64,7 @@ struct RosterView: View {
                                     clearForm()
                                 }
                             }
-                            .buttonStyle(.borderedProminent)
-                            .tint(AguaColor.Accent.blue)
+                            .buttonStyle(.chalk)
 
                             Button("Cancel", role: .cancel) {
                                 focusedField = nil
@@ -78,8 +77,7 @@ struct RosterView: View {
                                     clearForm()
                                 }
                             }
-                            .buttonStyle(.borderedProminent)
-                            .tint(AguaColor.Accent.blue)
+                            .buttonStyle(.chalk)
                         }
                     }
                 } header: {
@@ -118,7 +116,7 @@ struct RosterView: View {
                                 } label: {
                                     Label("Edit", systemImage: "pencil")
                                 }
-                                .tint(AguaColor.Accent.blue)
+                                .tint(Color.chalkBlueDeep)
                             }
                         }
                     }

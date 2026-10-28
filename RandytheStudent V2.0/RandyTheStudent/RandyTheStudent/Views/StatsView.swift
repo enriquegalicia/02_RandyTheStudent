@@ -63,7 +63,7 @@ struct StatsView: View {
                 participationList(
                     title: String(localized: "Most Active"),
                     icon: "star.fill",
-                    tint: AguaColor.Accent.blue,
+                    tint: Color.chalkBlue,
                     students: ranking.mostActive
                 )
                 participationList(

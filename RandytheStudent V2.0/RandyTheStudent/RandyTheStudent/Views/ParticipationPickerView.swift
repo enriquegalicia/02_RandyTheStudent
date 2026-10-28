@@ -47,8 +47,7 @@ struct ParticipationPickerView: View {
                     Label("Pick a Student", systemImage: "shuffle")
                         .frame(maxWidth: .infinity)
                 }
-                .buttonStyle(.borderedProminent)
-                .tint(AguaColor.Accent.blue)
+                .buttonStyle(.chalk)
                 .controlSize(.large)
                 .disabled(store.students.isEmpty)
 

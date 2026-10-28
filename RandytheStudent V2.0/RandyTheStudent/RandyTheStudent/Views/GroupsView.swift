@@ -68,14 +68,13 @@ struct GroupsView: View {
                         Label("Generate Groups", systemImage: "shuffle")
                             .frame(maxWidth: .infinity)
                     }
-                    .buttonStyle(.borderedProminent)
-                    .tint(AguaColor.Accent.blue)
+                    .buttonStyle(.chalk)
                     .disabled(store.students.isEmpty || groupCount > store.students.count)
 
                     if !store.groups.isEmpty {
                         HStack(spacing: AguaSpacing.s) {
                             TextField("Activity name", text: $activityName)
-                                .textFieldStyle(.roundedBorder)
+                                .textFieldStyle(.chalk)
                                 .focused($isActivityNameFocused)
                                 .submitLabel(.done)
                                 .onSubmit(saveActivity)
@@ -113,7 +112,7 @@ struct GroupsView: View {
                                 Spacer()
                                 Text("Group \(entry.groupNumber)")
                                     .font(.caption.bold())
-                                    .foregroundStyle(AguaColor.Accent.blue)
+                                    .foregroundStyle(Color.chalk)
                             }
                             .accessibilityElement(children: .combine)
                             .listRowBackground(AguaColor.bgCard)

@@ -1,5 +1,7 @@
 # App Store Connect Listing Copy — RandoSquad
 
+> **Paste from [AppStoreConnect_Listing.md](../documentation/AppStoreConnect_Listing.md)** (2026-10-19): one sheet with every App Store Connect field, Privacy Policy URL included, checked by `scripts/listing_check.py`. This file is background; where it disagrees with the sheet, the sheet wins.
+
 ## App Name (30 char max)
 RandoSquad
 
@@ -73,6 +75,8 @@ The app's internal bundle identifier is unchanged
 (`com.Magnificent.RandyTheStudent`) so any prior App Store Connect record
 stays intact; only the public-facing name changed.*
 
-*Screenshots still needed: iPhone (6.7" and 6.1" size classes) and iPad
-(12.9" and 11") showing the Roster, Groups, and Stats screens at minimum —
-capture these once the rebuilt app is verified on simulator/device.*
+*Screenshots still needed: Apple's required sizes are now iPhone 6.3" (1206×2622) and
+iPad 13" (2064×2752) (2026-10-06); the others are scaled from those. Story order,
+captions, header/search creative assets, A/B tests and custom product pages:
+[../documentation/AppStore_Assets.md](../documentation/AppStore_Assets.md). Capture
+once the rebuilt app is verified on simulator/device, with a fictional roster.*

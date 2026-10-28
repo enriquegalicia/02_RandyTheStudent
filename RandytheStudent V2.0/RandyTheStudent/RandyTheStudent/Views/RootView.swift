@@ -40,6 +40,9 @@ struct RootView: View {
         .sheet(isPresented: $showingSettings) {
             SettingsView()
         }
+        #if DEBUG
+        .task { if ScreenshotSeed.isOn { selectedClass = ScreenshotSeed.prepare(library) } }
+        #endif
     }
 }
 

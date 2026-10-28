@@ -8,18 +8,22 @@ public enum AguaRadius {
 }
 
 public extension View {
-    /// The house dark background: fills `AguaColor.bgPrimary` edge to edge and
-    /// forces dark mode, since the whole design language is dark-first.
+    /// The app's background: fills `AguaColor.bgPrimary` edge to edge and applies the
+    /// theme's colour scheme (`AguaTheme.current`).
     func aguaBackground() -> some View {
         self
             .background(AguaColor.bgPrimary.ignoresSafeArea())
-            .preferredColorScheme(.dark)
+            .preferredColorScheme(AguaTheme.current.colorScheme)
     }
 
-    /// The house card surface — a rounded rectangle filled with `AguaColor.bgCard`,
-    /// the standard container for a row, stat tile, or content block.
+    /// The card surface — a rounded rectangle filled with `AguaColor.bgCard` (plus the
+    /// theme's hairline border), the standard container for a row, stat tile, or content block.
     func aguaCard(radius: CGFloat = AguaRadius.medium) -> some View {
-        self.background(RoundedRectangle(cornerRadius: radius).fill(AguaColor.bgCard))
+        self.background(
+            RoundedRectangle(cornerRadius: radius)
+                .fill(AguaColor.bgCard)
+                .overlay(RoundedRectangle(cornerRadius: radius).strokeBorder(AguaTheme.current.cardBorder, lineWidth: 1))
+        )
     }
 
     /// A step up from `aguaCard` for a surface that should read as "raised"
@@ -50,6 +54,17 @@ public struct AguaGroupHeader: View {
     /// already resolved via `String(localized:)` — displayed as-is, same as
     /// `Text(verbatim:)`. Matches any `StringProtocol` value so existing
     /// `AguaGroupHeader(String(localized: "…"))` call sites keep compiling.
+    ///
+    /// `@_disfavoredOverload` is load-bearing, not decoration (added 2026-09-08). Without
+    /// it a *string literal* call site — `AguaGroupHeader("Quests")` — resolved here rather
+    /// than to the `LocalizedStringKey` init above, because `String` is a literal's default
+    /// type. The header was then rendered with `Text(verbatim:)` and **never localized**, so
+    /// every section header in every app stayed in English no matter what the catalog said.
+    /// Caught by WanderClue's Spanish pass: the translations were present and compiled into
+    /// `es.lproj`, and the headers were still English on screen. The attribute pushes literals
+    /// to the localized init while dynamic `String` values (which can't be a `LocalizedStringKey`)
+    /// still land here — so no call site anywhere had to change.
+    @_disfavoredOverload
     public init<S: StringProtocol>(_ title: S) {
         content = .verbatim(String(title))
     }

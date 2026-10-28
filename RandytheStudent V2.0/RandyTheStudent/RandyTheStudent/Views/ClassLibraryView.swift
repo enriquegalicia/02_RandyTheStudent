@@ -43,7 +43,7 @@ struct ClassLibraryView: View {
                             } label: {
                                 Label("Rename", systemImage: "pencil")
                             }
-                            .tint(AguaColor.Accent.blue)
+                            .tint(Color.chalkBlueDeep)
                         }
                     }
                 }
@@ -54,12 +54,11 @@ struct ClassLibraryView: View {
             Section {
                 HStack(spacing: AguaSpacing.s) {
                     TextField("New class name", text: $newClassName)
-                        .textFieldStyle(.roundedBorder)
+                        .textFieldStyle(.chalk)
                         .submitLabel(.done)
                         .onSubmit(createClass)
                     Button("Add", action: createClass)
-                        .buttonStyle(.borderedProminent)
-                        .tint(AguaColor.Accent.blue)
+                        .buttonStyle(.chalk)
                         .disabled(newClassName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
                 }
                 .listRowBackground(Color.clear)

@@ -177,7 +177,7 @@ struct ActivitiesView: View {
                 .keyboardType(.decimalPad)
                 .multilineTextAlignment(.trailing)
                 .frame(width: 70)
-                .textFieldStyle(.roundedBorder)
+                .textFieldStyle(.chalk)
             Button("Save") {
                 guard let value = parsedValue, isValid else { return }
                 if store.gradeGroup(groupNumber: grade.groupNumber, activityName: grade.activityName, grade: value) {

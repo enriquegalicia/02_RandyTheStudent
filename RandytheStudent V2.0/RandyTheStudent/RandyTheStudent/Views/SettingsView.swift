@@ -29,7 +29,7 @@ struct SettingsView: View {
                                 gradeScaleMax = preset
                             }
                             .buttonStyle(.bordered)
-                            .tint(gradeScaleMax == preset ? AguaColor.Accent.blue : AguaColor.textMuted)
+                            .tint(gradeScaleMax == preset ? Color.chalk : AguaColor.textMuted)
                         }
                     }
 
@@ -41,7 +41,7 @@ struct SettingsView: View {
                             .keyboardType(.decimalPad)
                             .multilineTextAlignment(.trailing)
                             .frame(width: 80)
-                            .textFieldStyle(.roundedBorder)
+                            .textFieldStyle(.chalk)
                             .submitLabel(.done)
                             .onSubmit(commitCustomText)
                     }
